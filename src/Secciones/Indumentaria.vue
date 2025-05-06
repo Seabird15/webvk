@@ -60,16 +60,48 @@
             label="+ info"
             variant="primary"
             size="md"
-            @click="console.log('click')"
+            @click="openModal"
           />
         </div>
       </div>
     </div>
+    <!--Modales-->
+    <div class="relative z-20">
+      <ModalVk ref="modal">
+        <div class="relative">
+          <button
+            @click="closeModal"
+            class="cursor-pointer absolute right-1 text-gray-400 text-2xl"
+          >
+            x
+          </button>
+
+          <div class="py-7">
+            <h2 class="text-xl font-semibold">Contenido producto ... uwu</h2>
+            <p>imagen etc etc</p>
+          </div>
+        </div>
+      </ModalVk>
+    </div>
+    <!--Modales-->
   </section>
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 import Button from "../Componentes/Button.vue";
+import ModalVk from "../Componentes/ModalVk.vue";
+
+const modal = ref(null);
+
+const openModal = () => {
+  modal.value.open();
+};
+
+const closeModal = () => {
+  modal.value.close();
+};
 
 const indumentaria = [
   {
