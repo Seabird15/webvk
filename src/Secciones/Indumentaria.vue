@@ -28,9 +28,10 @@
           <!-- Imagen -->
           <div class="mb-4 overflow-hidden rounded-lg">
             <img
+              :class="item.class"
               :src="item.image"
               alt=""
-              class="w-full h-40 sm:h-44 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+              class="w-full object-center h-40 sm:h-44 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
             />
           </div>
 
@@ -73,6 +74,7 @@ import Button from "../Componentes/Button.vue";
 const indumentaria = [
   {
     title: "Cortaviento",
+    class: "object-top",
     detalle: "Entrenamiento",
     description: "SPIRIT SPORT",
     precio: "$19.990",

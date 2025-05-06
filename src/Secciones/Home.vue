@@ -41,7 +41,7 @@
 }
 
 .bg-banner {
-  background-image: url("https://i.ibb.co/gMvkMgn9/banner-1-1746500229681-99.webp");
+  background-image: url("https://i.ibb.co/fz4QWjs4/banner-1-1.png");
   height: 100vh;
   width: 100%;
 }
