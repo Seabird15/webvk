@@ -68,7 +68,6 @@ const agregarEvento = () => {
       Agregar evento
     </button>
     <VueCal
-      editable-events
       locale="es"
       :events="events"
       :hide-weekends="!showWeekends"
