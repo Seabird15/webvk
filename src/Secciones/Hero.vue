@@ -25,7 +25,6 @@
     </div>
   </header>
 </template>
-[]
 <style scoped>
 @font-face {
   font-family: "gobold";
@@ -36,6 +35,7 @@
 .primary {
   color: #ffde59;
 }
+
 .font-gobold {
   font-family: "gobold", sans-serif;
 }

@@ -11,7 +11,7 @@
           alt=""
         />
         <div
-          class="absolute bg-black/50 rounded-3xl backdrop-blur-md text-white top-1/4 container mx-auto flex flex-col items-start lg:justify-between p-6 sm:p-8 md:p-10 lg:p-20 uppercase font-bold"
+          class="absolute bg-black/50 rounded-3xl backdrop-blur-md text-white top-2/4 container mx-auto flex flex-col items-start lg:justify-between p-6 sm:p-8 md:p-10 lg:p-20 uppercase font-bold"
         >
           <p class="font-gobold relative tracking-widest text-xl mb-6">
             <b class="text-[#07a495]"

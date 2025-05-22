@@ -1,17 +1,12 @@
-<script setup>
-import Home from "./Secciones/Home.vue";
-import Categorias from "./Secciones/Categorias.vue";
-import Competencias from "./Secciones/Competencias.vue";
-import Indumentaria from "./Secciones/Indumentaria.vue";
-</script>
-
 <template>
-  <Home />
-  <Categorias />
-  <Competencias />
-  <Indumentaria />
+  <div class="font-gobold">
+    <Home />
+  </div>
 </template>
 
+<script setup>
+import Home from "./Pages/Home.vue";
+</script>
 <style>
 @font-face {
   font-family: "gobold";
@@ -20,6 +15,10 @@ import Indumentaria from "./Secciones/Indumentaria.vue";
   font-style: normal;
 }
 
+.color-button {
+  background-color: #07a495;
+  color: white;
+}
 .font-gobold {
   font-family: "gobold", sans-serif;
 }

@@ -60,7 +60,7 @@
             label="+ info"
             variant="primary"
             size="md"
-            @click="openModal"
+            @click="openModal(item.id)"
           />
         </div>
       </div>
@@ -77,8 +77,23 @@
           </button>
 
           <div class="py-7">
-            <h2 class="text-xl font-semibold">Contenido producto ... uwu</h2>
-            <p>imagen etc etc</p>
+            <h2 class="text-xl font-semibold">{{ modalContent.title }}</h2>
+            <p>{{ modalContent.description }}</p>
+            <p class="text-[#07a495]/90 my-4 text-2xl">
+              {{ modalContent.precio }}
+            </p>
+            <img
+              v-if="modalContent.image"
+              :src="modalContent.image"
+              alt="Producto"
+              class="w-auto mx-auto h-auto mt-4 rounded-lg"
+            />
+
+            <a
+              href="#"
+              class="mt-4 uppercase text-sm color-button font-gobold tracking-widest w-fit mx-auto px-7 py-2 rounded-3xl flex justify-center"
+              >Encarga el tuyo</a
+            >
           </div>
         </div>
       </ModalVk>
@@ -95,10 +110,24 @@ import ModalVk from "../Componentes/ModalVk.vue";
 
 const modal = ref(null);
 
-const openModal = () => {
+const modalContent = ref({
+  title: "",
+  description: "",
+  image: "",
+});
+
+const openModal = (id) => {
+  const item = indumentaria.find((product) => product.id === id);
+  if (item) {
+    modalContent.value = {
+      title: item.title,
+      description: `${item.detalle} - ${item.description}`,
+      image: item.image,
+      precio: item.precio,
+    };
+  }
   modal.value.open();
 };
-
 const closeModal = () => {
   modal.value.close();
 };
@@ -106,6 +135,7 @@ const closeModal = () => {
 const indumentaria = [
   {
     title: "Cortaviento",
+    id: "1",
     class: "object-top",
     detalle: "Entrenamiento",
     description: "SPIRIT SPORT",
@@ -114,6 +144,7 @@ const indumentaria = [
   },
   {
     title: "Camiseta Front",
+    id: "2",
     detalle: "Segunda indumentaria",
     description: "SPIRIT SPORT",
     precio: "$19.990",
@@ -121,6 +152,7 @@ const indumentaria = [
   },
   {
     title: "Camiseta Back",
+    id: "3",
     detalle: "Segunda indumentaria",
     description: "SPIRIT SPORT",
     precio: "$19.990",
@@ -128,6 +160,7 @@ const indumentaria = [
   },
   {
     title: "Camiseta 2024",
+    id: "4",
     detalle: "Primera indumentaria",
     description: "SPIRIT SPORT",
     precio: "$19.990",
