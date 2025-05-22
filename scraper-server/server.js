@@ -30,6 +30,7 @@ app.get("/api/tabla", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Servidor escuchando en http://localhost:3000");
+const port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
 });
