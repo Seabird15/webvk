@@ -9,7 +9,19 @@ app.get("/api/tabla", async (req, res) => {
   const url = "https://trotamundos.cl/index.php/apertura-2025-jueves/";
 
   try {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-accelerated-2d-canvas",
+        "--no-first-run",
+        "--no-zygote",
+        "--single-process", // Opcional, pero puede ayudar
+        "--disable-gpu",
+      ],
+    });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "networkidle2" });
 
