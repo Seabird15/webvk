@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const puppeteer = require("puppeteer");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const app = express();
 app.use(cors());
@@ -9,35 +10,19 @@ app.get("/api/tabla", async (req, res) => {
   const url = "https://trotamundos.cl/index.php/apertura-2025-jueves/";
 
   try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-        "--disable-accelerated-2d-canvas",
-        "--no-first-run",
-        "--no-zygote",
-        "--single-process", // Opcional, pero puede ayudar
-        "--disable-gpu",
-      ],
-    });
-    const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "networkidle2" });
+    const { data } = await axios.get(url);
+    const $ = cheerio.load(data);
 
-    // Espera a que la tabla esté en el DOM
-    await page.waitForSelector('div[data-id="577311e"]');
+    // Selecciona el contenido del div con el atributo data-id="577311e"
+    const tablaHtml = $('div[data-id="577311e"]').html();
 
-    const tablaHtml = await page.$eval(
-      'div[data-id="577311e"]',
-      (el) => el.outerHTML
-    );
-
-    await browser.close();
-
-    res.json({ tabla: tablaHtml });
+    if (tablaHtml) {
+      res.json({ tabla: tablaHtml });
+    } else {
+      res.status(404).json({ error: "Tabla no encontrada en el HTML" });
+    }
   } catch (error) {
-    console.error("Error en puppeteer:", error);
+    console.error("Error al obtener la tabla:", error.message);
     res.status(500).json({ error: "Error al obtener la tabla" });
   }
 });
