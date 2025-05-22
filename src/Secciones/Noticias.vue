@@ -1,7 +1,7 @@
 <template>
-  <section>
+  <section class="">
     <div class="container p-7">
-      <h2 class="text-white text-center text-9xl">Noticias</h2>
+      <h2 class="text-white text-center text-6xl lg:text-9xl">Noticias</h2>
     </div>
     <!-- Navegación -->
     <nav class="text-white flex justify-center gap-4 text-2xl">

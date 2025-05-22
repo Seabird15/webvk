@@ -4,7 +4,7 @@
     class="fixed inset-0 bg-black/50 bg-opacity-50 flex justify-center items-center z-50"
   >
     <div
-      class="bg-white p-6 rounded-lg max-w-sm lg:h-[99%] h-full lg:mt-0 mt-48 w-full"
+      class="bg-white p-6 rounded-lg max-w-sm lg:h-auto h-full lg:mt-0 mt-48 w-full"
     >
       <slot></slot>
       <button

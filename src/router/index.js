@@ -5,6 +5,10 @@ import Publicaciones from "../Pages/Publicaciones.vue";
 
 const routes = [
   {
+    path: "/",
+    redirect: "/calendario", // Redirige a /calendario por defecto
+  },
+  {
     path: "/ligas",
     name: "Ligas",
     component: Ligas,

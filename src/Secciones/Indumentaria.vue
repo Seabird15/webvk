@@ -2,7 +2,7 @@
   <section class="relative">
     <div class="bg-main vignette grayscale bg-contain"></div>
     <div
-      class="absolute inset-0 z-20 container mx-auto flex flex-col items-start lg:justify-between p-6 sm:p-8 md:p-10 lg:p-20 uppercase font-bold"
+      class="md:absolute inset-0 z-20 container mx-auto flex flex-col items-start lg:justify-between p-6 sm:p-8 md:p-10 lg:p-20 uppercase font-bold"
     >
       <h2
         class="font-gobold relative tracking-widest text-[#07a495] text-3xl sm:text-4xl lg:text-7xl mb-6"
