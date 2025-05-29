@@ -20,13 +20,13 @@
 
     <!-- Contenido Hover: Fondo blanco, Título, Descripción y Precio -->
     <div
-      class="absolute inset-0 p-6 bg-white flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform scale-95 group-hover:scale-100"
+      class="absolute inset-0 p-6 bg-white/60 flex flex-col items-center justify-center text-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out transform scale-95 group-hover:scale-100"
     >
       <h3 class="text-xl font-bold text-gray-800 mb-2">{{ title }}</h3>
-      <p class="text-sm text-gray-600 mb-3 leading-relaxed">
+      <p class="text-lg text-gray-600 mb-3 leading-relaxed">
         {{ description }}
       </p>
-      <p class="text-lg font-semibold text-gray-900">{{ price }}</p>
+      <p class="text-2xl font-semibold text-gray-900">{{ price }}</p>
     </div>
   </div>
 </template>

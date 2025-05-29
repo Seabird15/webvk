@@ -40,45 +40,45 @@
       <div class="grid lg:grid-cols-2 gap-7">
         <Cards
           title="Camiseta 2025"
-          price="$19.990"
-          description="Camiseta 2025, Spirit Sport. $19.990"
+          price="$14.990"
+          description="Camiseta 2025, Spirit Sport. $19.990, Talla de la XS a la 2XL"
           image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7046.jpg?alt=media&token=d1729e38-215c-41c5-9b72-656684225597"
           extraClass="bg-no-repeat w-full h-150"
         />
         <Cards
           title="Camiseta 2024"
-          price="$19.990"
-          description="Camiseta 2025, Spirit Sport. $19.990"
+          price="$14.990"
+          description="Camiseta 2024, Spirit Sport. $14.990, Talla de la XS a la 2XL"
           image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7001.jpg?alt=media&token=82050bdb-2713-4b93-9876-878d481f4e9d"
           extraClass="bg-no-repeat w-full h-150 "
         />
       </div>
       <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
         <Cards
-          title="Camiseta 2024"
-          price="$19.990"
-          description="Camiseta 2025, Spirit Sport. $19.990"
+          title="Polerón Canguro"
+          price="$18.000"
+          description="Polerón con Gorro, Insignia Pro, Spirit Sport, Talla de la XS a la 2XL"
           image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A6848.jpg?alt=media&token=d39ccad6-f0c8-4604-9f7c-92beb924105a"
           extraClass="bg-no-repeat w-full h-150 my-7"
         />
         <Cards
-          title="Camiseta 2024"
-          price="$19.990"
-          description="Camiseta 2025, Spirit Sport. $19.990"
+          title="Camiseta Arquera"
+          price="$14.990"
+          description="Camiseta 2025, Spirit Sport, Talla de la XS a la 2XL"
           image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A6881.jpg?alt=media&token=3714e0c1-f587-4d08-82a2-c24a1a07fe10"
           extraClass="bg-no-repeat w-full h-150 my-7"
         />
         <Cards
-          title="Camiseta 2024"
-          price="$19.990"
-          description="Camiseta 2025, Spirit Sport. $19.990"
+          title="Cortavientos"
+          price="$18.000"
+          description="Cortaviento resistente al agua, Insignia Pro, Spirit Sport, Talla de la XS a la 2XL"
           image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A6877.jpg?alt=media&token=08bf8da7-3fe1-4cf8-8351-afb302eaaabf"
           extraClass="bg-no-repeat w-full h-150 my-7"
         />
         <Cards
           title="Indumentaria Completa, Camiseta + Short"
-          price="$19.990"
-          description="Camiseta 2025, Spirit Sport. $19.990"
+          price="$20.990"
+          description="Indumentaria Completa, Camiseta + Short, Spirit Sport, Talla de la XS a la 2XL"
           image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7120.jpg?alt=media&token=c3a12f62-a2df-4c67-8c71-c044130b329e"
           extraClass="bg-no-repeat w-full h-150 my-7"
         />
