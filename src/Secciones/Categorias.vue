@@ -50,7 +50,7 @@
 
 <style scoped>
 .bg-main {
-  background-image: url("../assets/7dcb3f96-80d9-405f-9b51-b90ea4434357.jfif");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2Fbg-categorias.webp?alt=media&token=bff2a04d-e0de-4219-a786-59a9fae18b26");
   height: 100vh;
   width: 100%;
 }

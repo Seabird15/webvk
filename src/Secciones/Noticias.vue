@@ -9,10 +9,6 @@
       <RouterLink to="/calendario">Calendario</RouterLink>
       <RouterLink to="/publicaciones">Publicaciones</RouterLink>
     </nav>
-    <!-- Vista dinámica -->
-    <main class="text-white p-7">
-      <RouterView />
-    </main>
   </section>
 </template>
 

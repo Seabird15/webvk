@@ -1,12 +1,14 @@
 <template>
   <div class="font-gobold">
-    <Home />
+    <!-- Vista dinámica -->
+    <RouterView />
   </div>
 </template>
 
 <script setup>
-import Home from "./Pages/Home.vue";
+import { RouterView } from "vue-router";
 </script>
+
 <style>
 @font-face {
   font-family: "gobold";

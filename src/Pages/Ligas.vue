@@ -10,10 +10,6 @@
             <TablaTrotamundos />
           </div>
         </div>
-
-        <div>
-          <p>Ligas Femeninas Domingos</p>
-        </div>
       </div>
     </div>
   </section>

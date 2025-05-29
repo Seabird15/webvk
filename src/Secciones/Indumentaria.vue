@@ -64,6 +64,14 @@
           />
         </div>
       </div>
+      <div class="mx-auto flex justify-center">
+        <RouterLink
+          to="/indumentaria"
+          class="bg-white p-2 rounded-md text-[#07a495] font-bold hover:bg-[#07a495] hover:text-white transition"
+        >
+          Ver más
+        </RouterLink>
+      </div>
     </div>
     <!--Modales-->
     <div class="relative z-20">
@@ -107,6 +115,7 @@ import { ref } from "vue";
 
 import Button from "../Componentes/Button.vue";
 import ModalVk from "../Componentes/ModalVk.vue";
+import { RouterLink } from "vue-router";
 
 const modal = ref(null);
 
@@ -171,7 +180,7 @@ const indumentaria = [
 
 <style scoped>
 .bg-main {
-  background-image: url("../assets/fondoBg4.jpg");
+  background-image: url("../assets/bg-indumentaria.webp");
   height: 100vh;
   width: 100%;
 }
