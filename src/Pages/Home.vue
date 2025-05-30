@@ -9,7 +9,9 @@ import Noticias from "../Secciones/Noticias.vue";
 <template>
   <div class="font-gobold">
     <Hero />
+    <hr class="text-white mx-2" />
     <Categorias />
+
     <Competencias />
     <Indumentaria />
     <Noticias />

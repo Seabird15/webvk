@@ -2,6 +2,12 @@
   <section class="bg-gray-800 text-white p-4 rounded-3xl">
     <div>
       <h2 class="text-4xl">Ligas</h2>
+      <RouterLink
+        to="/"
+        class="mt-4 inline-block text-white bg-[#07a495] p-2 rounded-md"
+      >
+        &lt; Volver atrás
+      </RouterLink>
 
       <div class="flex flex-col md:flex-row justify-around my-7">
         <div>

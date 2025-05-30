@@ -35,13 +35,13 @@
     <!-- Contenido principal -->
     <div v-if="!loading && !imageError" class="relative">
       <h1
-        class="font-gobold absolute -top-[15%] transform translate-x-1/2 bg-white p-2 tracking-widest text-[#07a495] text-4xl lg:text-7xl mb-6"
+        class="font-gobold absolute -top-[4%] left-2 lg:-top-[15%] transform lg:translate-x-1/2 bg-white p-2 tracking-widest text-[#07a495] text-4xl lg:text-7xl mb-6"
       >
         Indumentaria VK
       </h1>
       <RouterLink
         to="/"
-        class="absolute text-white -top-[12%] bg-[#07a495] p-2 left-1/12 rounded-md"
+        class="absolute text-white -top-[2%] lg:-top-[12%] bg-[#07a495] p-2 left-1/12 rounded-md"
       >
         &lt; Volver atrás
       </RouterLink>

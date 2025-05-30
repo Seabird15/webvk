@@ -83,7 +83,12 @@ const agregarEvento = () => {
 
 <template>
   <section class="w-full bg-white mx-auto p-7">
-    <button @click="toggleWeekends">Mostrar/Ocultar fines de semana</button>
+    <RouterLink
+      to="/"
+      class="mt-4 inline-block text-white bg-[#07a495] p-2 rounded-md"
+    >
+      &lt; Volver atrás
+    </RouterLink>
     <button
       @click="openModalEvento"
       class="mb-4 cursor-pointer ml-2 px-4 py-2 bg-green-500 text-white rounded"

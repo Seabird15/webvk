@@ -1,4 +1,5 @@
 <template>
+  <hr class="text-white mx-2" />
   <section class="relative">
     <div class="bg-main vignette grayscale bg-contain"></div>
     <div
@@ -64,12 +65,12 @@
           />
         </div>
       </div>
-      <div class="mx-auto flex justify-center">
+      <div class="mx-auto w-full flex justify-center my-7">
         <RouterLink
           to="/indumentaria"
-          class="bg-white p-2 rounded-md text-[#07a495] font-bold hover:bg-[#07a495] hover:text-white transition"
+          class="bg-white p-2 rounded-md text-3xl text-[#07a495] font-bold hover:bg-[#07a495] hover:text-white transition"
         >
-          Ver más
+          Ver más >
         </RouterLink>
       </div>
     </div>
@@ -108,6 +109,8 @@
     </div>
     <!--Modales-->
   </section>
+
+  <hr class="text-white mx-2" />
 </template>
 
 <script setup>
