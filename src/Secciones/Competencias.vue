@@ -1,8 +1,6 @@
 <template>
   <main>
-    <div
-      class="relative overflow-y-scroll lg:overflow-hidden overflow-x-hidden"
-    >
+    <div class="relative overflow-y-scroll overflow-x-hidden">
       <div class="bg-black w-screen h-screen relative"></div>
       <div class="absolute z-20 inset-0 flex">
         <img
