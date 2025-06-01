@@ -8,7 +8,7 @@
         class="absolute z-20 inset-0 flex items-end justify-start p-10 lg:p-20 uppercase font-bold"
       >
         <h1
-          class="font-gobold text-6xl lg:text-8xl primary xl:text-9xl xl:leading-[9rem] tracking-widest lg:tracking-wider font-bold"
+          class="font-gobold leading-16 text-6xl lg:text-8xl primary xl:text-9xl xl:leading-[9rem] tracking-widest lg:tracking-wider font-bold"
         >
           Club deportivo <br />
           social y cultural <br />
