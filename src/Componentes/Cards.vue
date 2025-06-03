@@ -24,7 +24,7 @@
       <h3 class="text-2xl font-bold mb-1 drop-shadow-md">{{ title }}</h3>
       <p class="text-xl font-semibold drop-shadow-md">{{ price }}</p>
       <p
-        class="hidden md:blocktext-xl block lg:hidden font-semibold drop-shadow-md text-amber-300"
+        class="hidden md:block text-xl lg:hidden font-semibold drop-shadow-md text-amber-300"
       >
         Click para ver más
       </p>
@@ -52,11 +52,11 @@ import { ref } from "vue"; // Import ref
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: false,
   },
   price: {
     type: String, // Puedes cambiarlo a Number si prefieres y formatearlo
-    required: true,
+    required: false,
   },
   description: {
     type: String,
