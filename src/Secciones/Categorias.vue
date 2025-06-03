@@ -1,11 +1,13 @@
 <template>
   <main>
     <div class="relative">
-      <div
+      <!-- <div
         class="vignette bg-main bg-cover bg-no-repeat grayscale relative"
-      ></div>
+      ></div> -->
       <!-- Columnas contenido -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 absolute inset-0">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 vignette bg-[url(https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2Fbg-categorias.webp?alt=media&token=bff2a04d-e0de-4219-a786-59a9fae18b26)] bg-no-repeat bg-cover"
+      >
         <div
           class="z-20 flex flex-col items-start lg:justify-between p-10 lg:p-20 uppercase font-bold"
         >
@@ -62,7 +64,7 @@
   background: radial-gradient(
       ellipse at center,
       transparent 0%,
-      rgba(0, 0, 0, 0.6) 100%
+      rgba(0, 0, 0, 0.6) 20%
     ),
     rgba(0, 0, 0, 0.4);
 }

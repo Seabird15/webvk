@@ -1,30 +1,41 @@
 <template>
+  <hr class="text-white mx-2" />
+
   <section class="mb-7">
     <div class="container p-7">
-      <h2 class="text-white text-center text-6xl lg:text-9xl">Próximos partidos</h2>
+      <h2 class="text-white text-center text-6xl lg:text-7xl">
+        Próximos partidos
+      </h2>
     </div>
 
-    <div class="p-7 grid lg:grid-cols-3 gap-2">
-     <Cards
-   
-          description="Fortín Cruzado, Ligas Femeninas"
-          image="./src/assets/fotopartido.jpeg"
-          extraClass="bg-no-repeat h-160 w-full  "
-        />
-          <Cards
-   
-          description="Fortín Cruzado, Ligas Femeninas"
-          image="./src/assets/fotopartido2.jpeg"
-          extraClass="bg-no-repeat h-160 w-full "
-                  :color="false"
-        />
-          <Cards
-   
-          description="Fortín Cruzado, Ligas Femeninas"
-          image="./src/assets/fotopartido3.jpeg"
-          extraClass="bg-no-repeat h-160 w-full "
-          :color="false"
-        />
+    <div class="p-7 lg:relative grid lg:grid-cols-3 gap-2">
+      <p
+        class="text-white lg:absolute bg-red-600 w-fit p-2 rounded-md -mb-7 z-20"
+      >
+        NextMatch
+      </p>
+      <Cards
+        description="Fortín Cruzado, Ligas Femeninas"
+        image="./src/assets/fotopartido.jpeg"
+        extraClass="bg-no-repeat h-160 w-full  "
+      />
+      <p
+        class="text-white lg:absolute lg:left-1/3 bg-red-600 w-fit p-2 rounded-md -mb-7 z-20"
+      >
+        Finalizados
+      </p>
+      <Cards
+        description="Fortín Cruzado, Ligas Femeninas"
+        image="./src/assets/fotopartido2.jpeg"
+        extraClass="bg-no-repeat h-160 w-full "
+        :color="false"
+      />
+      <Cards
+        description="Fortín Cruzado, Ligas Femeninas"
+        image="./src/assets/fotopartido3.jpeg"
+        extraClass="bg-no-repeat h-160 w-full "
+        :color="false"
+      />
     </div>
     <!-- Navegación -->
     <!-- <nav
