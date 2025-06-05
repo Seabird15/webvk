@@ -16,7 +16,7 @@
       </p>
       <Cards
         description="Fortín Cruzado, Ligas Femeninas"
-        image="./src/assets/fotopartido.jpeg"
+        image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2Ffotopartido.jpeg?alt=media&token=a81dce6f-eee9-475a-8c1d-aca3bbc435a2"
         extraClass="bg-no-repeat h-160 w-full  "
       />
       <p
@@ -26,13 +26,13 @@
       </p>
       <Cards
         description="Fortín Cruzado, Ligas Femeninas"
-        image="./src/assets/fotopartido2.jpeg"
+        image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2Ffotopartido2.jpeg?alt=media&token=8bf8c5a2-2cd5-47bb-8d0e-e6d5278de431"
         extraClass="bg-no-repeat h-160 w-full "
         :color="false"
       />
       <Cards
         description="Fortín Cruzado, Ligas Femeninas"
-        image="./src/assets/fotopartido3.jpeg"
+        image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2Ffotopartido3.jpeg?alt=media&token=610196db-9c6c-4184-9f2f-3b2a71e0617a"
         extraClass="bg-no-repeat h-160 w-full "
         :color="false"
       />

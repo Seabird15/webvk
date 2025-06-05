@@ -52,7 +52,7 @@
             title="Camiseta 2025"
             price="$14.990"
             description="Camiseta 2025, Spirit Sport. $19.990, Talla de la XS a la 2XL"
-            image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7046.jpg?alt=media&token=d1729e38-215c-41c5-9b72-656684225597"
+            image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7046%201%201.webp?alt=media&token=7a17d37d-3797-4f27-9e40-5bb815245d52"
             extraClass="bg-no-repeat w-full h-150"
           />
           <Cards
