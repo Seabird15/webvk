@@ -17,6 +17,13 @@ import { RouterView } from "vue-router";
   font-style: normal;
 }
 
+@font-face {
+  font-family: "goboldText";
+  src: url("/src/assets/Fuentes/GoboldLowplus.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .color-button {
   background-color: #07a495;
   color: white;

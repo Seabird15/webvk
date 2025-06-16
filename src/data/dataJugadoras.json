@@ -86,7 +86,7 @@
     "Estado": "Deportista",
     "Equipo": "Escuela Vikingas",
     "Nº Socio": "",
-    "Eliminado": "",
+    "posicion": "Mediocampo - Defensa",
     "imagen": ""
   },
   {
@@ -253,7 +253,7 @@
   },
   {
     "Nombre": "Fransheska",
-    "Apellidos": "Cáceres Ibáñez",
+    "Apellidos": "Cáceres",
     "Nombre de usuario": "Fransheska",
     "Correo electrónico": "Fransheska.2015b@gmail.com",
     "Fecha de nacimiento": "2002-06-10",
@@ -266,8 +266,8 @@
     "Estado": "Deportista",
     "Equipo": "Escuela Vikingas, Fútbol 11 Vks, y VK Ascenso",
     "Nº Socio": "",
-    "Eliminado": "",
-    "imagen": ""
+    "posicion": "Ala - Mediocampo",
+    "imagen": "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749249174/4_1_qapdcw.webp"
   },
   {
     "Nombre": "Gabriela",
@@ -374,8 +374,8 @@
     "Estado": "Deportista",
     "Equipo": "Escuela Vikingas",
     "Nº Socio": "",
-    "Eliminado": "",
-    "imagen": ""
+    "posicion": "Defensa",
+    "imagen": "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749249174/5_1_ftm57q.webp"
   },
   {
     "Nombre": "Licksy",
@@ -500,8 +500,8 @@
     "Estado": "Deportista",
     "Equipo": "Escuela Vikingas",
     "Nº Socio": "",
-    "Eliminado": "",
-    "imagen": ""
+    "posicion": "Delantera",
+    "imagen": "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749247998/6_1_teyngd.webp"
   },
   {
     "Nombre": "Michelle",
@@ -590,8 +590,8 @@
     "Estado": "Deportista",
     "Equipo": "Escuela Vikingas",
     "Nº Socio": "",
-    "Eliminado": "",
-    "imagen": ""
+    "posicion": "Defensa",
+    "imagen": "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749247997/7_1_c6h7t3.webp"
   },
   {
     "Nombre": "Paula",
@@ -662,8 +662,8 @@
     "Estado": "Deportista",
     "Equipo": "Escuela Vikingas",
     "Nº Socio": "",
-    "Eliminado": "",
-    "imagen": ""
+    "posicion": "",
+    "imagen": "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749247996/3_1_duiocv.webp"
   },
   {
     "Nombre": "Scarlet",
@@ -770,7 +770,7 @@
     "Estado": "Entrenador",
     "Equipo": "Coach Team, Escuela Vikingas, Fútbol 11 Vks, y VK Ascenso",
     "Nº Socio": "",
-    "Eliminado": "",
-    "imagen": ""
+    "posicion": "DT",
+    "imagen": "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749247996/2_1_pb7ht5.webp"
   }
 ]

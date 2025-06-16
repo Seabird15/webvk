@@ -1,12 +1,12 @@
 <template>
-  <main>
+  <main class="" id="categorias">
     <div class="relative">
       <!-- <div
         class="vignette bg-main bg-cover bg-no-repeat grayscale relative"
       ></div> -->
       <!-- Columnas contenido -->
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 vignette bg-[url(https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2Fbg-categorias.webp?alt=media&token=bff2a04d-e0de-4219-a786-59a9fae18b26)] bg-no-repeat bg-cover"
+        class="grid grid-cols-1 lg:grid-cols-2 vignette bg-[url(https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749150773/6L6A7185_1_fzghvs.webp)] bg-no-repeat bg-cover"
       >
         <div
           class="z-20 flex flex-col items-start lg:justify-between p-10 lg:p-20 uppercase font-bold"

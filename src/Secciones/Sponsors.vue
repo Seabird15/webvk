@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="py-20 " id="sponsors">
     <div
       class="container mx-auto flex flex-col items-start lg:justify-between p-6 sm:p-8 md:p-10 lg:p-20 uppercase font-bold"
     >
@@ -9,11 +9,11 @@
         Sponsors
       </h2>
 
-      <div class="bg-white lg:bg-white/90 rounded-md lg:grid grid-cols-4 gap-4">
+      <div class="bg-white lg:bg-white/90 rounded-md lg:grid grid-cols-5 gap-4">
         <div
           v-for="sponsors in sponsors"
           :key="sponsors.name"
-          class="mb-6 p-4 rounded-md lg:my-auto lg:mx-auto lg:w-3/4"
+          class="mb-6 p-4 rounded-md lg:my-auto lg:w-3/4"
         >
           <img
             loading="lazy"
@@ -22,6 +22,10 @@
             alt=""
           />
         </div>
+      </div>
+      <div class="flex w-full relative mt-7">
+        <h3 class="text-white text-5xl py-7 mt-2">En alianza con:</h3>
+        <img class="w-96 lg:absolute -top-[100%] right-1/3" src="../assets/logospiritpng.png" alt="">
       </div>
     </div>
   </section>
@@ -46,5 +50,13 @@ const sponsors = [
     name: "Sponsor 4",
     logo: "https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2FLogo%20Bamati.png?alt=media&token=be73ea29-5bd3-4ee7-84b1-0219123ce0d9",
   },
+  {
+    name: "Sponsor 5",
+    logo: "https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749150971/profile-removebg-preview_trwz2f.png",
+  },
 ];
 </script>
+
+<style>
+
+</style>

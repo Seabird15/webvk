@@ -6,7 +6,7 @@
         <h2
           class="font-gobold relative tracking-widest text-[#07a495] text-3xl sm:text-4xl lg:text-7xl mb-6"
         >
-          % Asistencia Entrenamientos Ascenso
+          % Asistencia Entrenamientos Escuela 
         </h2>
       </div>
       <div>
@@ -41,7 +41,7 @@
       </div>
       <div>
         <p class="text-lg text-center">Asistencia periodo 01 Enero 2025 / 03 Junio 2025</p>
-        <img class="w-full" src="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/asistencia%2FIMG_20250603_150518_923.webp?alt=media&token=11f3c705-06b6-4627-b5e6-2789f6ca2c07" alt="">
+        <img class="w-full" src="https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749235901/asistenciaglobalescuela_nysr5j.png" alt="">
       </div>
     </div>
   </section>

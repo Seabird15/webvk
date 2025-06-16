@@ -6,6 +6,8 @@ import IndumentariaDetalle from "../Pages/IndumentariaDetalle.vue";
 import AsistenciaAscenso from "../Secciones/PrivadoJugadoras/AsistenciaAscenso.vue";
 import AsistenciaEscuela from "../Secciones/PrivadoJugadoras/AsistenciaEscuela.vue";
 import Jugadoras from "../Pages/Jugadoras.vue";
+import Galeria from "../Pages/Galeria.vue";
+import objetivosAscenso from "../Secciones/PrivadoJugadoras/objetivosAscenso.vue";
 import Home from "../Pages/Home.vue";
 
 const routes = [
@@ -46,8 +48,18 @@ const routes = [
   },
       {
     path: "/jugadoras",
-    name: "jugadoras",
+    name: "Jugadoras",
     component: Jugadoras,
+  },
+     {
+    path: "/galeria",
+    name: "Galeria",
+    component: Galeria,
+  },
+       {
+    path: "/objetivosascenso",
+    name: "Objetivos Ascenso",
+    component: objetivosAscenso,
   },
 ];
 

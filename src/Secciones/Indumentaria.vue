@@ -1,6 +1,6 @@
 <template>
   <hr class="text-white mx-2" />
-  <section class="relative">
+  <section class="relative py-20 bg-section" id="indumentarias">
     <div
       class="container mx-auto flex flex-col items-start lg:justify-between p-6 sm:p-8 md:p-10 lg:p-20 uppercase font-bold"
     >
@@ -9,7 +9,7 @@
       >
         equipaciones 2025
       </h2>
-      <div class="w-full grid lg:grid-cols-2">
+      <div class="w-full grid gap-4 lg:grid-cols-2">
         <Cards
           title="Camiseta 2025"
           price="$14.990"

@@ -8,6 +8,7 @@ export default {
       extend: {
         fontFamily: {
           gobold: ['Gobold', 'sans-serif'],
+          goboldText: ['Gobold Lowplus', 'sans-serif'],
         },
         colors: {
           primary: '#ffde59',
