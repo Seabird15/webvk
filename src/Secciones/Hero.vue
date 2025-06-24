@@ -25,7 +25,7 @@ onMounted(() => {
         class="absolute z-20 inset-0 flex items-end justify-start p-10 lg:p-20 uppercase font-bold"
       >
         <h1
-          class="font-gobold leading-16 text-6xl md:text-8xl primary lg:text-9xl lg:leading-[9rem] tracking-widest lg:tracking-wider font-bold"
+          class="font-gobold leading-16 text-6xl md:text-8xl primary xl:text-9xl lg:leading-[7rem] xl:leading-[9rem] tracking-widest lg:tracking-wider font-bold"
         >
           Club deportivo <br />
           social y cultural <br />
@@ -34,7 +34,7 @@ onMounted(() => {
       </div>
       <div class="absolute z-10 inset-0 flex justify-center pt-10">
         <img
-          src="../assets/VK LOGO COLOR (3).png"
+          src="../assets/vk-logo-normal.png"
           alt="Logo Vikingas Club Deportivo"
           class="w-2/4 hidden md:block lg:max-w-4/6 object-contain lg:-bottom-[15rem] lg:-right-[15rem] absolute"
         />
@@ -43,7 +43,7 @@ onMounted(() => {
   </header>
 </template>
 
-<style scoped>
+<style >
 @font-face {
   font-family: "gobold";
   src: url("/src/assets/Fuentes/GoboldExtra.otf") format("opentype");

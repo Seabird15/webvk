@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "sitiovks"
-  }
+    "default": "web-vikingas",
+    "web-vikingas": "web-vikingas"
+  },
+  "targets": {},
+  "etags": {}
 }

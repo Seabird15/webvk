@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 flex justify-between items-center">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2">
-        <img src="/src/assets/VK LOGO BLANCO PNG (1).png" alt="Vikingas Logo" class="w-10 h-10 rounded-full shadow-md" />
+        <img src="/src/assets/vk-logo-blanco.png" alt="Vikingas Logo" class="w-10 h-10 rounded-full shadow-md" />
         <span class="text-white text-xl font-bold hidden sm:inline">Vikingas</span>
       </a>
 
@@ -38,7 +38,18 @@
       <!-- Menú para pantallas grandes -->
       <ul class="hidden md:flex flex-1 justify-center gap-6 text-white text-lg font-semibold">
         <li v-for="item in navItems" :key="item.href" class="relative group">
+          <router-link
+            v-if="item.href === '/admin'"
+            :to="item.href"
+            class="hover:text-[#ffde59] transition-colors duration-200 px-2 py-1 relative group-hover:text-[#ffde59] flex items-center"
+          >
+            {{ item.label }}
+            <span
+              class="block h-0.5 bg-[#ffde59] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded"
+            ></span>
+          </router-link>
           <a
+            v-else
             :href="item.href"
             class="hover:text-[#ffde59] transition-colors duration-200 px-2 py-1 relative group-hover:text-[#ffde59] flex items-center"
           >
@@ -73,7 +84,16 @@
         </button>
         <ul class="flex flex-col items-center gap-8 w-full">
           <li v-for="item in navItems" :key="item.href" class="w-full text-center">
+            <router-link
+              v-if="item.href === '/admin'"
+              :to="item.href"
+              @click.native="closeMenu"
+              class="block py-3 hover:text-[#ffde59] transition-colors duration-200"
+            >
+              {{ item.label }}
+            </router-link>
             <a
+              v-else
               :href="item.href"
               @click="closeMenu"
               class="block py-3 hover:text-[#ffde59] transition-colors duration-200"
@@ -99,6 +119,7 @@ const navItems = [
   { label: "Indumentarias", href: "#indumentarias" },
   { label: "Jugadoras", href: "#jugadoras" },
   { label: "Sponsors", href: "#sponsors" },
+  { label: "Admin", href: "/admin" },
 ];
 
 const toggleMenu = () => {

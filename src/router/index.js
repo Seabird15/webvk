@@ -7,8 +7,16 @@ import AsistenciaAscenso from "../Secciones/PrivadoJugadoras/AsistenciaAscenso.v
 import AsistenciaEscuela from "../Secciones/PrivadoJugadoras/AsistenciaEscuela.vue";
 import Jugadoras from "../Pages/Jugadoras.vue";
 import Galeria from "../Pages/Galeria.vue";
+import Entrenamientos from "../Pages/Entrenamientos.vue";
+import Admin from "../Pages/Admin.vue";
 import objetivosAscenso from "../Secciones/PrivadoJugadoras/objetivosAscenso.vue";
+import objetivosEscuela from "../Secciones/PrivadoJugadoras/objetivosEscuela.vue";
+
+
+//Admin
+import ResultadosAdmin from "../admin/ResultadosAdmin.vue";
 import Home from "../Pages/Home.vue";
+import JugadorasAdmin from "../admin/jugadorasAdmin.vue";
 
 const routes = [
   {
@@ -31,10 +39,25 @@ const routes = [
     name: "Calendario",
     component: Calendario,
   },
+   {
+    path: "/entrenamientosascenso",
+    name: "Entrenamientos",
+    component: Entrenamientos,
+  },
   {
     path: "/publicaciones",
     name: "Publicaciones",
     component: Publicaciones,
+  },
+    {
+    path: "/admin",
+    name: "Administrador",
+    component: Admin,
+  },
+    {
+    path: "/admin/jugadoras",
+    name: "Admin Jugadoras",
+    component: JugadorasAdmin,
   },
     {
     path: "/asistenciaascenso",
@@ -60,6 +83,16 @@ const routes = [
     path: "/objetivosascenso",
     name: "Objetivos Ascenso",
     component: objetivosAscenso,
+  },
+        {
+    path: "/objetivosescuela",
+    name: "Objetivos Escuela",
+    component: objetivosEscuela,
+  },
+       {
+    path: "/resultados-admin",
+    name: "Resultados Admin",
+    component: ResultadosAdmin,
   },
 ];
 

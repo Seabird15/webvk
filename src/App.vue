@@ -31,6 +31,11 @@ import { RouterView } from "vue-router";
 .font-gobold {
   font-family: "gobold", sans-serif;
 }
+
+p {
+  font-family: "goboldText", sans-serif;
+  
+}
 html {
   background-color: black;
   scroll-behavior: smooth;

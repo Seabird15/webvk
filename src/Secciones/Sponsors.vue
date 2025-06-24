@@ -25,7 +25,7 @@
       </div>
       <div class="flex w-full relative mt-7">
         <h3 class="text-white text-5xl py-7 mt-2">En alianza con:</h3>
-        <img class="w-96 lg:absolute -top-[100%] right-1/3" src="../assets/logospiritpng.png" alt="">
+        <img class="w-96 lg:absolute -top-[100%] right-1/4" src="../assets/logospiritpng.png" alt="">
       </div>
     </div>
   </section>

@@ -16,7 +16,7 @@
         </span>
         <Cards
           image="https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749752129/WhatsApp_Image_2025-06-12_at_12.14.00_PM_edio0g.jpg"
-          extraClass="bg-no-repeat xl:h-160 h-100 sm:h-72 w-full rounded-2xl shadow-xl border-2 border-[#07a495] transition-transform duration-300 hover:scale-105"
+          extraClass="bg-no-repeat xl:h-160 h-100 sm:h-200 w-full rounded-2xl shadow-xl border-2 border-[#07a495] transition-transform duration-300 hover:scale-105"
         />
       </div>
       <!-- Card 2 -->
@@ -26,7 +26,7 @@
         </span>
         <Cards
           image="https://res.cloudinary.com/dfr2c9ry2/image/upload/v1749669623/WhatsApp_Image_2025-06-11_at_1.19.26_PM_1_zeencm.jpg"
-          extraClass="bg-no-repeat xl:h-160 h-100 sm:h-72 w-full rounded-2xl shadow-xl border-2 border-[#07a495] transition-transform duration-300 hover:scale-105"
+          extraClass="bg-no-repeat xl:h-160 h-100 sm:h-200 w-full rounded-2xl shadow-xl border-2 border-[#07a495] transition-transform duration-300 hover:scale-105"
           :color="false"
         />
       </div>
@@ -37,7 +37,6 @@
 </template>
 
 <script setup>
-import { RouterLink } from "vue-router";
 import Cards from "../Componentes/Cards.vue";
 </script>
 

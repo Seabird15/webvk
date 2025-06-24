@@ -2,7 +2,7 @@
   <section id="resultados">
     <div class="mx-auto py-4 lg:p-20">
       <h2 class="font-gobold mx-4 tracking-widest text-[#07a495] text-4xl lg:text-7xl mb-8 text-center">
-        Últimos Resultados
+       Partidos
       </h2>
       <div class="bg-black/80 py-7 my-2 rounded-2xl shadow-xl">
         <div class="flex  bg-gradient-to-r from-[#07a495] to-[#0b6a60c6] py-2 mt-6 mx-auto justify-center lg:rounded-full max-w-xl">
@@ -76,9 +76,9 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import vkLogo from "../assets/VK LOGO COLOR (3).png";
+import vkLogo from "../assets/vk-logo-normal.png"; // Asegúrate de que la ruta sea correcta
 
-const activeTab = ref("ligaDobleve");
+const activeTab = ref("proxPartido");
 const tabs = ref([
   { name: "Liga Dobleve", value: "ligaDobleve" },
   { name: "Ligas Femeninas", value: "ligasFemeninas" },
@@ -114,7 +114,7 @@ const resultsData = ref({
 
 
       team1: { name: "VK", logo: vkLogo, score: 0 },
-      team2: { name: "Por confirmar", logo: null, score: 0 },
+      team2: { name: "Blue Label", logo: null, score: 0 },
       
     },
   ],
