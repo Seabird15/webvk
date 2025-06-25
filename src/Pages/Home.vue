@@ -9,14 +9,12 @@ import Asistencia from "../Secciones/PrivadoJugadoras/Asistencia.vue";
 import RedesSociales from "../Secciones/RedesSociales.vue";
 import Sponsors from "../Secciones/Sponsors.vue";
 
-import Nav from "../Componentes/Nav.vue";
 </script>
 
 <template>
   <div class="font-gobold">
     <Hero />
     <hr class="text-white mx-2" />
-    <Nav />
 
     <Resultados />
     <Noticias />

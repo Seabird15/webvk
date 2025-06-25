@@ -1,7 +1,8 @@
 <template>
 
   
-  <div class="max-w-5xl mx-auto mt-10 p-4 shadow-2xl rounded-xl bg-gradient-to-br from-[#e0f7fa] to-[#fff]">
+ <section class="p-4">
+   <div class="max-w-5xl mx-auto mt-10 p-4 shadow-2xl rounded-xl bg-gradient-to-br from-[#e0f7fa] to-[#fff]">
      <router-link to="/" class="bg-[#07a495] text-white px-4 py-2 rounded mb-6 inline-block hover:bg-[#059687] transition">
        < Volver al inicio
     </router-link>
@@ -181,6 +182,7 @@
       </ModalVk>
     </div>
   </div>
+ </section>
 </template>
 
 <script setup>

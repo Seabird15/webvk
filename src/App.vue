@@ -2,11 +2,15 @@
   <div class="font-gobold">
     <!-- Vista dinámica -->
     <RouterView />
+    <Nav />
+
   </div>
 </template>
 
 <script setup>
 import { RouterView } from "vue-router";
+import Nav from "./Componentes/Nav.vue";
+
 </script>
 
 <style>

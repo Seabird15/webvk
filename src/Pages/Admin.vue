@@ -1,5 +1,5 @@
 <template>
-    <section class="container mx-auto my-4">
+    <section class="container mx-auto my-4 p-4">
         <h1 class="text-xl text-white">Opciones Admin</h1>
 
         <div v-if="!autenticado" class="bg-white p-6 rounded shadow max-w-sm mx-auto mt-10">

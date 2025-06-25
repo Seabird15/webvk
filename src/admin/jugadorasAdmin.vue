@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto my-8">
+  <section class="container mx-auto my-8 p-4">
     <router-link to="/" class="bg-[#07a495] text-white px-4 py-2 rounded mb-6 inline-block hover:bg-[#059687] transition">
        < Volver al inicio
     </router-link>
