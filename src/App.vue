@@ -22,6 +22,9 @@ import { RouterView } from "vue-router";
 import Nav from "./Componentes/Nav.vue";
 import { ref, onMounted } from "vue";
 
+import { usePushNotifications } from '@/composables/usePushNotifications'
+usePushNotifications()
+
 
 const loading = ref(true);
 

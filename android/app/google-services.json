@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537242760349",
+    "project_id": "web-vikingas",
+    "storage_bucket": "web-vikingas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537242760349:android:1d3b25f65a58e5900e9074",
+        "android_client_info": {
+          "package_name": "com.clubdeportivovikingas.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv1u-hTS65hle0UXjvD70M2G43dJjk3qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
