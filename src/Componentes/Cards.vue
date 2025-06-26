@@ -3,7 +3,7 @@
     class="relative group w-2/4 rounded-xl shadow-2xl overflow-hidden cursor-pointer transform transition-all duration-500 ease-in-out hover:scale-95"
     :style="{ backgroundImage: `url(${image})` }"
     style="background-size: cover"
-  :class="[extraClass, { 'grayscale': !color }]"
+    :class="[extraClass, { 'grayscale': !color }]"
     @click="toggleDetails"
   >
     <!-- Overlay oscuro para mejorar legibilidad del texto inicial sobre la imagen -->
@@ -42,6 +42,13 @@
         {{ description }}
       </p>
       <p class="text-2xl font-semibold text-gray-900">{{ price }}</p>
+      <a
+        :href="`https://wa.me/56987451232?text=Hola!%20Quiero%20encargar%20${encodeURIComponent(title)}`"
+        target="_blank"
+        class="mt-4 inline-block bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-4 py-2 rounded shadow transition"
+      >
+        Encargar por WhatsApp
+      </a>
     </div>
   </div>
 </template>

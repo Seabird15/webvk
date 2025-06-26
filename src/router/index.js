@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Ligas from "../Pages/Ligas.vue";
-import Calendario from "../Pages/Calendario.vue";
 import Publicaciones from "../Pages/Publicaciones.vue";
 import IndumentariaDetalle from "../Pages/IndumentariaDetalle.vue";
 import AsistenciaAscenso from "../Secciones/PrivadoJugadoras/AsistenciaAscenso.vue";
 import AsistenciaEscuela from "../Secciones/PrivadoJugadoras/AsistenciaEscuela.vue";
 import Jugadoras from "../Pages/Jugadoras.vue";
 import Galeria from "../Pages/Galeria.vue";
+
 import Entrenamientos from "../Pages/Entrenamientos.vue";
+import EntrenamientosEscuela from "../Pages/EntrenamientosEscuela.vue";
+import EntrenamientosFut from "../Pages/EntrenamientosFut.vue";
+
 import Admin from "../Pages/Admin.vue";
+
+import FechasImportantes from "../Pages/FechasImportantes.vue";
+import EstadisticasEntrenamientos from "../Pages/EstadisticasEntrenamientos.vue";
+
 import objetivosAscenso from "../Secciones/PrivadoJugadoras/objetivosAscenso.vue";
 import objetivosEscuela from "../Secciones/PrivadoJugadoras/objetivosEscuela.vue";
 
@@ -18,31 +24,46 @@ import ResultadosAdmin from "../admin/ResultadosAdmin.vue";
 import Home from "../Pages/Home.vue";
 import JugadorasAdmin from "../admin/jugadorasAdmin.vue";
 
+
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
   },
-  {
-    path: "/ligas",
-    name: "Ligas",
-    component: Ligas,
+    {
+    path: "/estadisticasentrenamientos",
+    name: "Estadisticas Entrenamientos",
+    component: EstadisticasEntrenamientos,
   },
+     {
+    path: "/fechasimportantes",
+    name: "Fechas Importantes",
+    component: FechasImportantes,
+  },
+
+
   {
     path: "/indumentaria",
     name: "IndumentariaDetalle",
     component: IndumentariaDetalle, // Página para mostrar más detalles
   },
-  {
-    path: "/calendario",
-    name: "Calendario",
-    component: Calendario,
-  },
+
    {
     path: "/entrenamientosascenso",
     name: "Entrenamientos",
     component: Entrenamientos,
+  },
+     {
+    path: "/entrenamientosescuela",
+    name: "EntrenamientosEscuela",
+    component: EntrenamientosEscuela,
+  },
+      {
+    path: "/entrenamientosfut",
+    name: "EntrenamientosFut",
+    component: EntrenamientosFut
+    ,
   },
   {
     path: "/publicaciones",

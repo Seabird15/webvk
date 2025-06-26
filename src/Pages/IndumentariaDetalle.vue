@@ -1,52 +1,58 @@
 <template>
   <section>
-    <!-- Imagen principal -->
-    <img
-      :src="imageBanner"
-      alt="Banner Indumentaria"
-      loading="eager"
-      @load="handleImageLoad"
-      @error="handleImageError"
-      :class="[
-        'w-full h-auto lg:max-h-[80vh] mx-auto object-cover lg:p-7 rounded-lg shadow-lg',
-        { hidden: loading || imageError },
-      ]"
-    />
-
-    <!-- Loader -->
-    <div
-      v-if="loading"
-      class="relative flex justify-center items-center min-h-[70vh]"
-    >
-      <span class="loader"></span>
-    </div>
-
-    <!-- Error -->
-    <div v-if="!loading && imageError" class="text-center py-10">
-      <p class="text-red-500">Error al cargar la imagen.</p>
-      <RouterLink
-        to="/"
-        class="mt-4 inline-block text-white bg-[#07a495] p-2 rounded-md"
+    <div class="relative w-full mx-auto lg:p-7 rounded-lg shadow-lg overflow-hidden mb-10 min-h-[40vh]">
+      <img
+        :src="imageBanner"
+        alt="Banner Indumentaria"
+        loading="eager"
+        @load="handleImageLoad"
+        @error="handleImageError"
+        class="w-full h-[40vh] lg:h-[60vh] object-cover transition-all duration-500"
+        :class="{ hidden: loading || imageError }"
+      />
+      <!-- Overlay -->
+      <div
+        v-if="!loading && !imageError"
+        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none"
+      ></div>
+      <div
+        v-if="!loading && !imageError"
+        class="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
       >
-        &lt; Volver atrás
-      </RouterLink>
+        <h1
+          class="font-gobold tracking-widest text-[#07a495] text-4xl lg:text-7xl mb-4 drop-shadow-lg bg-white/80 rounded px-4 py-2"
+        >
+          Indumentaria VK
+        </h1>
+        <RouterLink
+          to="/"
+          class="mt-2 inline-block text-white bg-[#07a495] hover:bg-[#059485] transition px-6 py-2 rounded-md shadow-lg font-semibold"
+        >
+          &lt; Volver atrás
+        </RouterLink>
+      </div>
+      <!-- Loader -->
+      <div
+        v-if="loading"
+        class="absolute inset-0 flex justify-center items-center bg-black"
+      >
+        <span class="loader"></span>
+      </div>
+      <!-- Error -->
+      <div v-if="!loading && imageError" class="absolute inset-0 flex flex-col justify-center items-center bg-white/90 z-10">
+        <p class="text-red-500 text-lg mb-4">Error al cargar la imagen.</p>
+        <RouterLink
+          to="/"
+          class="text-white bg-[#07a495] p-2 rounded-md"
+        >
+          &lt; Volver atrás
+        </RouterLink>
+      </div>
     </div>
 
     <!-- Contenido principal -->
     <div v-if="!loading && !imageError" class="relative">
-      <h1
-        class="font-gobold absolute -top-[4%] left-2 lg:-top-[15%] transform lg:translate-x-1/2 bg-white p-2 tracking-widest text-[#07a495] text-4xl lg:text-7xl mb-6"
-      >
-        Indumentaria VK
-      </h1>
-      <RouterLink
-        to="/"
-        class="absolute text-white -top-[2%] lg:-top-[12%] bg-[#07a495] p-2 left-1/12 rounded-md"
-      >
-        &lt; Volver atrás
-      </RouterLink>
-
-      <section class="mt-[120px] px-10 pt-10">
+      <section class="mt-2 px-10 pt-10">
         <div class="grid lg:grid-cols-2 gap-7 mb-10">
           <Cards
             title="Camiseta 2025"
@@ -54,14 +60,34 @@
             description="Camiseta 2025, Spirit Sport. $19.990, Talla de la XS a la 2XL"
             image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7046%201%201.webp?alt=media&token=7a17d37d-3797-4f27-9e40-5bb815245d52"
             extraClass="bg-no-repeat w-full h-150"
-          />
+          >
+            <template #footer>
+              <a
+                :href="`https://wa.me/56987451232?text=Hola!%20Quiero%20encargar%20la%20Camiseta%202025`"
+                target="_blank"
+                class="mt-4 inline-block bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-4 py-2 rounded shadow transition"
+              >
+                Encargar por WhatsApp
+              </a>
+            </template>
+          </Cards>
           <Cards
             title="Camiseta 2024"
             price="$14.990"
             description="Camiseta 2024, Spirit Sport. $14.990, Talla de la XS a la 2XL"
             image="https://firebasestorage.googleapis.com/v0/b/sitiovks.firebasestorage.app/o/Fotos%2F6L6A7001.jpg?alt=media&token=82050bdb-2713-4b93-9876-878d481f4e9d"
             extraClass="bg-no-repeat w-full h-150"
-          />
+          >
+            <template #footer>
+              <a
+                :href="`https://wa.me/56987451232?text=Hola!%20Quiero%20encargar%20la%20Camiseta%202024`"
+                target="_blank"
+                class="mt-4 inline-block bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-4 py-2 rounded shadow transition"
+              >
+                Encargar por WhatsApp
+              </a>
+            </template>
+          </Cards>
         </div>
 
         <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
@@ -69,13 +95,22 @@
             v-for="(item, index) in additionalItems"
             :key="index"
             v-bind="item"
-          />
+          >
+            <template #footer>
+              <a
+                :href="`https://wa.me/56987451232?text=Hola!%20Quiero%20encargar%20${encodeURIComponent(item.title)}`"
+                target="_blank"
+                class="mt-4 inline-block bg-[#25D366] hover:bg-[#128C7E] text-white font-semibold px-4 py-2 rounded shadow transition"
+              >
+                Encargar por WhatsApp
+              </a>
+            </template>
+          </Cards>
         </div>
       </section>
     </div>
   </section>
 </template>
-
 <script setup>
 import { ref } from "vue";
 import { RouterLink } from "vue-router";

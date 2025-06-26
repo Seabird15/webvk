@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">webvk</string>
-    <string name="title_activity_main">webvk</string>
+    <string name="app_name">CDVikingas</string>
+    <string name="title_activity_main">AppVks</string>
     <string name="package_name">com.clubdeportivovikingas.app</string>
     <string name="custom_url_scheme">com.clubdeportivovikingas.app</string>
 </resources>

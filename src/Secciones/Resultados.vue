@@ -34,7 +34,7 @@
               <div class="flex gap-7 items-center w-full justify-center">
                 <div class="flex flex-col items-center">
                   <img
-                    :src="match.team1.logo"
+                    src="../assets/vk-logo-normal.png"
                     :alt="match.team1.name"
                     class="object-contain w-16 h-16 rounded-full border-2 border-[#07a495] bg-white shadow"
                   />
@@ -75,8 +75,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import vkLogo from "../assets/vk-logo-normal.png"; // Asegúrate de que la ruta sea correcta
+import { ref, computed, onMounted } from "vue";
+import { db } from "../firebase";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 const activeTab = ref("proxPartido");
 const tabs = ref([
@@ -86,38 +87,9 @@ const tabs = ref([
 ]);
 
 const resultsData = ref({
-  ligaDobleve: [
-    {
-      status:"Final Dobleve Ascenso",
-      team1: { name: "VK", logo: vkLogo, score: 1 },
-      team2: { name: "Peñanense", logo: null, score: 3 },
-      goles: [
-        { player: "Colora" },
-      ],
-    },
-  ],
-  ligasFemeninas: [
-    {
-      status:"Liguilla de Oro",
-
-      team1: { name: "VK", logo: vkLogo, score: 2 },
-      team2: { name: "Barra Libre", logo: null, score: 6 },
-        goles: [
-        { player: "Mota" },
-        { player: "Deni" },
-      ],
-    },
-  ],
-    proxPartido: [
-    {
-      status:"Semifinal, Ligas Femeninas",
-
-
-      team1: { name: "VK", logo: vkLogo, score: 0 },
-      team2: { name: "Blue Label", logo: null, score: 0 },
-      
-    },
-  ],
+  ligaDobleve: [],
+  ligasFemeninas: [],
+  proxPartido: [],
 });
 
 const switchTab = (tabValue) => {
@@ -125,7 +97,31 @@ const switchTab = (tabValue) => {
 };
 
 const currentResults = computed(() => {
-  return resultsData.value[activeTab.value] || [];
+  // Solo el más reciente (primero del array) por categoría
+  const arr = resultsData.value[activeTab.value] || [];
+  return arr.length > 0 ? [arr[0]] : [];
+});
+
+// Cargar resultados desde Firestore
+const cargarResultados = async () => {
+  const q = query(collection(db, "resultados"), orderBy("fecha", "desc"));
+  const snap = await getDocs(q);
+  // Limpia los arrays
+  resultsData.value = {
+    ligaDobleve: [],
+    ligasFemeninas: [],
+    proxPartido: [],
+  };
+  snap.forEach(doc => {
+    const data = doc.data();
+    if (data.tab && resultsData.value[data.tab]) {
+      resultsData.value[data.tab].push(data);
+    }
+  });
+};
+
+onMounted(() => {
+  cargarResultados();
 });
 </script>
 

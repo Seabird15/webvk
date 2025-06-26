@@ -1,10 +1,10 @@
 <template>
   <div
     v-if="isOpen"
-    class="fixed inset-0 bg-black/50 bg-opacity-50 flex justify-center items-center z-50"
+    class="fixed inset-0 bg-black/50 bg-opacity-50 flex justify-center  z-50"
   >
     <div
-      class="bg-white p-6 rounded-lg max-w-sm lg:h-auto h-full lg:mt-0 mt-48 w-full relative"
+      class="bg-white p-6 py-14 rounded-lg max-w-sm lg:h-auto h-170 lg:mt-0 mt-7 w-full relative"
     >
       <slot></slot>
       <button

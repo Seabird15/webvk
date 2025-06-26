@@ -1,111 +1,104 @@
 <template>
   <section class="container mx-auto my-8 p-4">
-    <router-link to="/" class="bg-[#07a495] text-white px-4 py-2 rounded mb-6 inline-block hover:bg-[#059687] transition">
-       < Volver al inicio
-    </router-link>
+    <router-link to="/"
+      class="bg-[#07a495] text-white px-4 py-2 rounded mb-6 inline-block hover:bg-[#059687] transition">
+      < Volver al inicio </router-link>
 
-    <h1 class="text-3xl font-bold text-[#07a495] mb-8 text-center">Administrar Jugadoras</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- ASCENSO -->
-      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-bold text-[#07a495]">Ascenso</h2>
-          <button
-            @click="openModal('ascenso')"
-            class="bg-[#07a495] cursor-pointer hover:bg-[#059687] text-white px-3 py-1 rounded font-bold shadow transition"
-            title="Agregar jugadora"
-          >
-            + Agregar
-          </button>
-        </div>
-        <div v-if="jugadoras.length === 0" class="text-gray-400 text-center py-8">Sin jugadoras registradas.</div>
-        <div v-else class="flex flex-col gap-3">
-          <div
-            v-for="jugadora in jugadoras"
-            :key="jugadora.id"
-            class="flex items-center justify-between bg-[#f7fafc] rounded p-3 shadow-sm hover:shadow transition"
-          >
-            <div>
-              <p class="font-semibold text-[#07a495]">{{ jugadora.nombre }} {{ jugadora.apellido }}</p>
-              <p class="text-xs text-gray-600">Dorsal: {{ jugadora.dorsal }} <span v-if="jugadora.posicion">| {{ jugadora.posicion }}</span></p>
-              <p class="text-xs text-gray-500" v-if="jugadora.nacimiento">Nacimiento: {{ jugadora.nacimiento }}</p>
-              <p class="text-xs text-gray-500" v-if="jugadora.status">{{ jugadora.status }}</p>
+        <h1 class="text-3xl font-bold text-[#07a495] mb-8 text-center">Administrar Jugadoras</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- ASCENSO -->
+          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold text-[#07a495]">Ascenso</h2>
+              <button @click="openModal('ascenso')"
+                class="bg-[#07a495] cursor-pointer hover:bg-[#059687] text-white px-3 py-1 rounded font-bold shadow transition"
+                title="Agregar jugadora">
+                + Agregar
+              </button>
             </div>
-            <button
-              @click="eliminar('jugadoras-ascenso', jugadora.id)"
-              class="text-red-500 cursor-pointer hover:text-red-700 text-lg font-bold px-2"
-              title="Eliminar"
-            >🗑️</button>
+            <div v-if="jugadoras.length === 0" class="text-gray-400 text-center py-8">Sin jugadoras registradas.</div>
+            <div v-else class="flex flex-col gap-3">
+              <div v-for="jugadora in jugadoras" :key="jugadora.id"
+                class="flex items-center justify-between bg-[#f7fafc] rounded p-3 shadow-sm hover:shadow transition">
+                <div>
+                  <p class="font-semibold text-[#07a495]">{{ jugadora.nombre }} {{ jugadora.apellido }}</p>
+                  <p class="text-xs text-gray-600">Dorsal: {{ jugadora.dorsal }} <span v-if="jugadora.posicion">| {{
+                      jugadora.posicion }}</span></p>
+                  <p class="text-xs text-gray-500" v-if="jugadora.nacimiento">Nacimiento: {{ jugadora.nacimiento }}</p>
+                  <p class="text-xs text-gray-500" v-if="jugadora.status">{{ jugadora.status }}</p>
+                </div>
+                <button @click="abrirEditar('jugadoras-ascenso', jugadora)"
+                  class="text-blue-500 ml-auto cursor-pointer hover:text-blue-700 text-lg font-bold px-2"
+                  title="Editar">✏️</button>
+                <button @click="eliminar('jugadoras-ascenso', jugadora.id)"
+                  class="text-red-500 cursor-pointer hover:text-red-700 text-lg font-bold px-2"
+                  title="Eliminar">🗑️</button>
+              </div>
+            </div>
+          </div>
+          <!-- ESCUELA -->
+          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold text-[#ffde59]">Escuela</h2>
+              <button @click="openModal('escuela')"
+                class="bg-[#ffde59] cursor-pointer hover:bg-yellow-400 text-[#07a495] px-3 py-1 rounded font-bold shadow transition"
+                title="Agregar jugadora">
+                + Agregar
+              </button>
+            </div>
+            <div v-if="jugadorasEscuela.length === 0" class="text-gray-400 text-center py-8">Sin jugadoras registradas.
+            </div>
+            <div v-else class="flex flex-col gap-3">
+              <div v-for="jugadora in jugadorasEscuela" :key="jugadora.id"
+                class="flex items-center justify-between bg-[#fdf6e3] rounded p-3 shadow-sm hover:shadow transition">
+                <div>
+                  <p class="font-semibold text-[#07a495]">{{ jugadora.nombre }} {{ jugadora.apellido }}</p>
+                  <p class="text-xs text-gray-600">Dorsal: {{ jugadora.dorsal }} <span v-if="jugadora.posicion">| {{
+                      jugadora.posicion }}</span></p>
+                  <p class="text-xs text-gray-500" v-if="jugadora.nacimiento">Nacimiento: {{ jugadora.nacimiento }}</p>
+                  <p class="text-xs text-gray-500" v-if="jugadora.status">{{ jugadora.status }}</p>
+                </div>
+                <button @click="abrirEditar('jugadoras-escuela', jugadora)"
+                  class="text-blue-500 ml-auto cursor-pointer hover:text-blue-700 text-lg font-bold px-2"
+                  title="Editar">✏️</button>
+                <button @click="eliminar('jugadoras-escuela', jugadora.id)"
+                  class="text-red-500 cursor-pointer hover:text-red-700 text-lg font-bold px-2"
+                  title="Eliminar">🗑️</button>
+              </div>
+            </div>
+          </div>
+          <!-- FUT 11 -->
+          <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold text-[#07a495]">Fut 11</h2>
+              <button @click="openModal('fut11')"
+                class="bg-[#07a495] cursor-pointer hover:bg-[#059687] text-white px-3 py-1 rounded font-bold shadow transition"
+                title="Agregar jugadora">
+                + Agregar
+              </button>
+            </div>
+            <div v-if="jugadorasFut11.length === 0" class="text-gray-400 text-center py-8">Sin jugadoras registradas.
+            </div>
+            <div v-else class="flex flex-col gap-3">
+              <div v-for="jugadora in jugadorasFut11" :key="jugadora.id"
+                class="flex items-center justify-between bg-[#f7fafc] rounded p-3 shadow-sm hover:shadow transition">
+                <div>
+                  <p class="font-semibold text-[#07a495]">{{ jugadora.nombre }} {{ jugadora.apellido }}</p>
+                  <p class="text-xs text-gray-600">Dorsal: {{ jugadora.dorsal }} <span v-if="jugadora.posicion">| {{
+                      jugadora.posicion }}</span></p>
+                  <p class="text-xs text-gray-500" v-if="jugadora.nacimiento">Nacimiento: {{ jugadora.nacimiento }}</p>
+                  <p class="text-xs text-gray-500" v-if="jugadora.status">{{ jugadora.status }}</p>
+                </div>
+                <button @click="abrirEditar('jugadoras-fut11', jugadora)"
+                  class="text-blue-500 ml-auto cursor-pointer hover:text-blue-700 text-lg font-bold px-2"
+                  title="Editar">✏️</button>
+                <button @click="eliminar('jugadoras-fut11', jugadora.id)"
+                  class="text-red-50 cursor-pointer0 hover:text-red-700 text-lg font-bold px-2"
+                  title="Eliminar">🗑️</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- ESCUELA -->
-      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-bold text-[#ffde59]">Escuela</h2>
-          <button
-            @click="openModal('escuela')"
-            class="bg-[#ffde59] cursor-pointer hover:bg-yellow-400 text-[#07a495] px-3 py-1 rounded font-bold shadow transition"
-            title="Agregar jugadora"
-          >
-            + Agregar
-          </button>
-        </div>
-        <div v-if="jugadorasEscuela.length === 0" class="text-gray-400 text-center py-8">Sin jugadoras registradas.</div>
-        <div v-else class="flex flex-col gap-3">
-          <div
-            v-for="jugadora in jugadorasEscuela"
-            :key="jugadora.id"
-            class="flex items-center justify-between bg-[#fdf6e3] rounded p-3 shadow-sm hover:shadow transition"
-          >
-            <div>
-              <p class="font-semibold text-[#07a495]">{{ jugadora.nombre }} {{ jugadora.apellido }}</p>
-              <p class="text-xs text-gray-600">Dorsal: {{ jugadora.dorsal }} <span v-if="jugadora.posicion">| {{ jugadora.posicion }}</span></p>
-              <p class="text-xs text-gray-500" v-if="jugadora.nacimiento">Nacimiento: {{ jugadora.nacimiento }}</p>
-              <p class="text-xs text-gray-500" v-if="jugadora.status">{{ jugadora.status }}</p>
-            </div>
-            <button
-              @click="eliminar('jugadoras-escuela', jugadora.id)"
-              class="text-red-500 cursor-pointer hover:text-red-700 text-lg font-bold px-2"
-              title="Eliminar"
-            >🗑️</button>
-          </div>
-        </div>
-      </div>
-      <!-- FUT 11 -->
-      <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col">
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-bold text-[#07a495]">Fut 11</h2>
-          <button
-            @click="openModal('fut11')"
-            class="bg-[#07a495] cursor-pointer hover:bg-[#059687] text-white px-3 py-1 rounded font-bold shadow transition"
-            title="Agregar jugadora"
-          >
-            + Agregar
-          </button>
-        </div>
-        <div v-if="jugadorasFut11.length === 0" class="text-gray-400 text-center py-8">Sin jugadoras registradas.</div>
-        <div v-else class="flex flex-col gap-3">
-          <div
-            v-for="jugadora in jugadorasFut11"
-            :key="jugadora.id"
-            class="flex items-center justify-between bg-[#f7fafc] rounded p-3 shadow-sm hover:shadow transition"
-          >
-            <div>
-              <p class="font-semibold text-[#07a495]">{{ jugadora.nombre }} {{ jugadora.apellido }}</p>
-              <p class="text-xs text-gray-600">Dorsal: {{ jugadora.dorsal }} <span v-if="jugadora.posicion">| {{ jugadora.posicion }}</span></p>
-              <p class="text-xs text-gray-500" v-if="jugadora.nacimiento">Nacimiento: {{ jugadora.nacimiento }}</p>
-              <p class="text-xs text-gray-500" v-if="jugadora.status">{{ jugadora.status }}</p>
-            </div>
-            <button
-              @click="eliminar('jugadoras-fut11', jugadora.id)"
-              class="text-red-50 cursor-pointer0 hover:text-red-700 text-lg font-bold px-2"
-              title="Eliminar"
-            >🗑️</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- MODALES -->
@@ -116,8 +109,10 @@
       <input v-model="apellido" type="text" placeholder="Apellido" class="border p-2 rounded w-full" required>
       <input v-model="dorsal" type="text" placeholder="Dorsal" class="border p-2 rounded w-full">
       <input v-model="posicion" type="text" placeholder="Posición" class="border p-2 rounded w-full">
-      <input v-model="nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)" class="border p-2 rounded w-full">
-      <button type="submit" class="bg-[#07a495] hover:bg-[#059687] text-white font-bold py-2 rounded mt-2">Agregar</button>
+      <input v-model="nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)"
+        class="border p-2 rounded w-full">
+      <button type="submit"
+        class="bg-[#07a495] hover:bg-[#059687] text-white font-bold py-2 rounded mt-2">Agregar</button>
     </form>
   </ModalVk>
 
@@ -128,8 +123,10 @@
       <input v-model="apellido" type="text" placeholder="Apellido" class="border p-2 rounded w-full" required>
       <input v-model="dorsal" type="text" placeholder="Dorsal" class="border p-2 rounded w-full">
       <input v-model="posicion" type="text" placeholder="Posición" class="border p-2 rounded w-full">
-      <input v-model="nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)" class="border p-2 rounded w-full">
-      <button type="submit" class="bg-[#ffde59] cursor-pointer hover:bg-yellow-400 text-[#07a495] font-bold py-2 rounded mt-2">Agregar</button>
+      <input v-model="nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)"
+        class="border p-2 rounded w-full">
+      <button type="submit"
+        class="bg-[#ffde59] cursor-pointer hover:bg-yellow-400 text-[#07a495] font-bold py-2 rounded mt-2">Agregar</button>
     </form>
   </ModalVk>
 
@@ -140,28 +137,46 @@
       <input v-model="apellido" type="text" placeholder="Apellido" class="border p-2 rounded w-full" required>
       <input v-model="dorsal" type="text" placeholder="Dorsal" class="border p-2 rounded w-full">
       <input v-model="posicion" type="text" placeholder="Posición" class="border p-2 rounded w-full">
-      <input v-model="nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)" class="border p-2 rounded w-full">
-      <button type="submit" class="bg-[#07a495] cursor-pointer hover:bg-[#059687] text-white font-bold py-2 rounded mt-2">Agregar</button>
+      <input v-model="nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)"
+        class="border p-2 rounded w-full">
+      <button type="submit"
+        class="bg-[#07a495] cursor-pointer hover:bg-[#059687] text-white font-bold py-2 rounded mt-2">Agregar</button>
     </form>
   </ModalVk>
+ 
+    <!-- MODAL EDITAR-->
+  <ModalVk :isOpen="isOpenEditar" @close="isOpenEditar = false">
+  <h2 class="text-xl font-bold mb-2 text-[#07a495]">Editar Jugadora</h2>
+  <form @submit.prevent="guardarEdicion" class="flex flex-col gap-2">
+    <input v-model="editJugadora.nombre" type="text" placeholder="Nombre" class="border p-2 rounded w-full" required>
+    <input v-model="editJugadora.apellido" type="text" placeholder="Apellido" class="border p-2 rounded w-full" required>
+    <input v-model="editJugadora.dorsal" type="text" placeholder="Dorsal" class="border p-2 rounded w-full">
+    <input v-model="editJugadora.posicion" type="text" placeholder="Posición" class="border p-2 rounded w-full">
+    <input v-model="editJugadora.nacimiento" type="text" placeholder="Fecha Nacimiento (12/12/1999)" class="border p-2 rounded w-full">
+    <button type="submit" class="bg-[#07a495] hover:bg-[#059687] text-white font-bold py-2 rounded mt-2">Guardar cambios</button>
+  </form>
+</ModalVk>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import ModalVk from '../Componentes/ModalVk.vue';
-import { collection, onSnapshot, doc, deleteDoc } from 'firebase/firestore'
+import { collection, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { obtenerDocumentos, agregarJugadora } from '../helpers/functions'
+
+import Swal from 'sweetalert2'
 
 const isOpenAscenso = ref(false)
 const isOpenEscuela = ref(false)
 const isOpenFut11 = ref(false)
+const isOpenEditar = ref(false)
 
 const openModal = (tipo) => {
-    limpiarCampos()
-    if (tipo === 'ascenso') isOpenAscenso.value = true
-    if (tipo === 'escuela') isOpenEscuela.value = true
-    if (tipo === 'fut11') isOpenFut11.value = true
+  limpiarCampos()
+  if (tipo === 'ascenso') isOpenAscenso.value = true
+  if (tipo === 'escuela') isOpenEscuela.value = true
+  if (tipo === 'fut11') isOpenFut11.value = true
 }
 
 const nombre = ref('')
@@ -171,12 +186,14 @@ const posicion = ref('')
 const dorsal = ref('')
 
 const limpiarCampos = () => {
-    nombre.value = ''
-    apellido.value = ''
-    nacimiento.value = ''
-    posicion.value = ''
-    dorsal.value = ''
+  nombre.value = ''
+  apellido.value = ''
+  nacimiento.value = ''
+  posicion.value = ''
+  dorsal.value = ''
 }
+
+
 
 const agregar = async (coleccion) => {
   const jugadora = {
@@ -193,7 +210,7 @@ const agregar = async (coleccion) => {
   if (coleccion === 'jugadoras-fut11') isOpenFut11.value = false
 }
 
-// Función para eliminar jugadora
+//  eliminar jugadora
 const eliminar = async (coleccion, id) => {
   if (confirm('¿Seguro que deseas eliminar esta jugadora?')) {
     try {
@@ -210,13 +227,13 @@ const jugadorasEscuela = ref([]);
 const jugadorasFut11 = ref([]);
 
 const cargarJugadoras = async () => {
-    jugadoras.value = await obtenerDocumentos(db, 'jugadoras-ascenso')
-    jugadorasEscuela.value = await obtenerDocumentos(db, 'jugadoras-escuela')
-    jugadorasFut11.value = await obtenerDocumentos(db, 'jugadoras-fut11')
+  jugadoras.value = await obtenerDocumentos(db, 'jugadoras-ascenso')
+  jugadorasEscuela.value = await obtenerDocumentos(db, 'jugadoras-escuela')
+  jugadorasFut11.value = await obtenerDocumentos(db, 'jugadoras-fut11')
 }
 
 let unsubAscenso, unsubEscuela, unsubFut11
-
+//traer jugadoras en tiempo real seguin equipo
 const escucharJugadoras = () => {
   unsubAscenso = onSnapshot(collection(db, 'jugadoras-ascenso'), snapshot => {
     jugadoras.value = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
@@ -229,8 +246,34 @@ const escucharJugadoras = () => {
   })
 }
 
+const editJugadora = ref({
+  id: '',
+  nombre: '',
+  apellido: '',
+  dorsal: '',
+  posicion: '',
+  nacimiento: '',
+  coleccion: ''
+})
+
+const abrirEditar = (coleccion, jugadora) => {
+  editJugadora.value = { ...jugadora, coleccion }
+  isOpenEditar.value = true
+}
+
+const guardarEdicion = async () => {
+  try {
+    const { id, coleccion, ...datos } = editJugadora.value
+    await updateDoc(doc(db, coleccion, id), datos)
+    isOpenEditar.value = false
+    Swal.fire('¡Guardado!', 'Los datos de la jugadora se actualizaron correctamente.', 'success')
+  } catch (e) {
+    Swal.fire('Error', 'No se pudo guardar los cambios.', 'error')
+    console.error(e)
+  }
+}
 onMounted(() => {
-    cargarJugadoras();
-    escucharJugadoras()
+  cargarJugadoras();
+  escucharJugadoras()
 });
 </script>

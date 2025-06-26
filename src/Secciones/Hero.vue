@@ -22,7 +22,7 @@ onMounted(() => {
         :class="{ 'banner-loaded': bannerLoaded }"
       ></div>
       <div
-        class="absolute z-20 inset-0 flex items-end justify-start p-10 lg:p-20 uppercase font-bold"
+        class="absolute z-20 inset-0 flex items-end bottom-36 justify-start p-10 lg:p-20 uppercase font-bold"
       >
         <h1
           class="font-gobold leading-16 text-6xl md:text-8xl primary xl:text-9xl lg:leading-[7rem] xl:leading-[9rem] tracking-widest lg:tracking-wider font-bold"

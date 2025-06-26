@@ -2,22 +2,14 @@
 
   
  <section class="p-4">
+
    <div class="max-w-5xl mx-auto mt-10 p-4 shadow-2xl rounded-xl bg-gradient-to-br from-[#e0f7fa] to-[#fff]">
      <router-link to="/" class="bg-[#07a495] text-white px-4 py-2 rounded mb-6 inline-block hover:bg-[#059687] transition">
        < Volver al inicio
     </router-link>
 
-    <div v-if="!autenticada" class="bg-white p-7 w-full sm:w-1/2 mx-auto rounded-sm">
-      <h2 class="text-2xl font-bold mb-6 text-[#07a495] text-center">Acceso a Entrenamientos</h2>
-      <input v-model="clave" type="password" placeholder="Ingresa clave"
-        class="border p-3 w-full mb-4 rounded focus:ring-2 focus:ring-[#07a495]" />
-      <button @click="verificarClave" class="bg-[#07a495] hover:bg-[#059687] text-white px-6 py-2 rounded w-full font-bold text-lg transition-all">
-        Ingresar
-      </button>
-      <p v-if="error" class="text-red-500 mt-2 text-center">{{ error }}</p>
-    </div>
 
-    <div v-else>
+    <div >
       <div class="flex justify-end mb-4">
         <button
           @click="isOpenModal = true"
@@ -27,7 +19,7 @@
         </button>
       </div>
 
-      <h2 class="text-3xl font-bold mb-8 text-[#07a495] text-center">Próximos Entrenamientos</h2>
+      <h2 class="text-3xl font-bold mb-8 text-[#07a495] text-center">Próximos Entrenamientos Ascenso</h2>
       <div class="flex flex-col gap-6">
         <div
           v-for="evento in eventos"
@@ -61,77 +53,89 @@
             <span class="text-sm font-bold text-[#07a495]">{{ porcentajeAsistencia(evento) }}%</span>
           </div>
           <!-- Card Content -->
-          <transition name="fade">
-            <div v-if="eventoAbierto === evento.id" class="p-6 bg-white flex flex-col md:flex-row gap-8">
-              <!-- Listado -->
-              <div class="md:w-1/3 w-full">
-                <h3 class="text-lg font-bold text-[#07a495] mb-2">Listado</h3>
-                <ul>
-                  <li
-                    v-for="item in listado[evento.id] || []"
-                    :key="item.id"
-                    class="mb-2 flex items-center gap-2 justify-between bg-[#e0f7fa] rounded px-2 py-1"
-                  >
-                    <div>
-                      <p class="font-light text-xs">{{ item.nombre }}</p>
-                      <span
-                        v-if="item.asiste"
-                        class="ml-2 bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold"
-                      >ASISTE</span>
-                      <span
-                        v-else
-                        class="ml-2 bg-red-100 text-red-700 px-2 py-0.5 rounded text-xs font-bold"
-                      >NO ASISTE</span>
-                      <span v-if="item.motivo" class="ml-2 text-gray-500 text-xs">({{ item.motivo }})</span>
-                    </div>
-                    <button
-                      v-if="item.asiste"
-                      @click="darDeBaja(evento, item)"
-                      class="text-red-500 hover:text-red-700 text-xs font-bold px-2 py-1 rounded border border-red-200 bg-red-50"
-                      title="Dar de baja"
-                    >Dar de baja</button>
-                  </li>
-                </ul>
-                <p v-if="(listado[evento.id] || []).length === 0" class="text-gray-400">Sin registros aún.</p>
-              </div>
-              <!-- Por confirmar -->
-              <div class="md:w-1/2 w-full">
-                <h3 class="text-lg font-bold text-[#07a495] mb-2">Por confirmar</h3>
-                <ul>
-                  <li v-for="jugadora in jugadorasPorConfirmar[evento.id]" :key="jugadora.id" class="mb-2 flex items-center gap-2">
-                    <span class="font-light text-xs">{{ jugadora.nombre }} {{ jugadora.apellido }}</span>
-                    <button
-                      class="bg-[#07a495] hover:bg-[#059687] text-white text-xs font-bold px-2 py-1 rounded transition"
-                      @click="registrarAsistenciaBoton(evento, jugadora, true)"
-                    >Asistiré</button>
-                    <button
-                      class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-2 py-1 rounded transition"
-                      @click="abrirMotivo(evento.id, jugadora.id)"
-                    >No asistiré</button>
-                    <!-- Input motivo solo para la jugadora seleccionada -->
-                    <template v-if="motivoInput[evento.id] && motivoInput[evento.id].jugadoraId === jugadora.id">
-                      <input
-                        v-model="motivoInput[evento.id].motivo"
-                        placeholder="Motivo"
-                        class="border p-1 rounded text-xs ml-2"
-                        style="width: 120px"
-                      />
-                      <button
-                        class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-2 py-1 rounded transition ml-1"
-                        @click="registrarAsistenciaBoton(evento, jugadora, false, motivoInput[evento.id].motivo)"
-                        :disabled="!motivoInput[evento.id].motivo"
-                      >Confirmar</button>
-                      <button
-                        class="text-gray-400 hover:text-gray-700 text-xs ml-1"
-                        @click="cerrarMotivo(evento.id)"
-                        title="Cancelar"
-                      >✕</button>
-                    </template>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </transition>
+  <!-- Card Content -->
+<transition name="fade">
+  <div v-if="eventoAbierto === evento.id" class="p-6 bg-white flex mb-24 flex-col md:flex-row gap-8">
+    <!-- Asisten -->
+    <div class="md:w-1/3 w-full">
+      <h3 class="text-lg font-bold text-[#07a495] mb-2">Asisten</h3>
+      <ul>
+        <li
+          v-for="(item, idx) in (listado[evento.id] || []).filter(x => x.asiste)"
+          :key="item.id"
+          class="mb-2 flex items-center gap-2 justify-between bg-green-50 rounded px-2 py-1"
+        >
+          <div>
+            <span class="font-bold text-[#07a495] mr-2">{{ idx + 1 }}.</span>
+            <span class="font-light text-xs">{{ item.nombre }}</span>
+          </div>
+          <button
+            @click="darDeBaja(evento, item)"
+            class="text-red-500 hover:text-red-700 text-xs font-bold px-2 py-1 rounded border border-red-200 bg-red-50"
+            title="Dar de baja"
+          >Dar de baja</button>
+        </li>
+      </ul>
+      <p v-if="((listado[evento.id] || []).filter(x => x.asiste).length === 0)" class="text-gray-400">Sin registros aún.</p>
+    </div>
+    <!-- No asisten -->
+    <div class="md:w-1/3 w-full">
+      <h3 class="text-lg font-bold text-red-600 mb-2">Bajas</h3>
+      <ul>
+        <li
+          v-for="(item, idx) in (listado[evento.id] || []).filter(x => x.asiste === false)"
+          :key="item.id"
+          class="mb-2 flex items-center gap-2 justify-between bg-red-50 rounded px-2 py-1"
+        >
+          <div>
+            <span class="font-bold text-red-600 mr-2">{{ idx + 1 }}.</span>
+            <span class="font-light text-xs">{{ item.nombre }}</span>
+            <span v-if="item.motivo" class="ml-2 text-gray-500 text-xs">({{ item.motivo }})</span>
+          </div>
+        </li>
+      </ul>
+      <p v-if="((listado[evento.id] || []).filter(x => x.asiste === false).length === 0)" class="text-gray-400">Sin bajas.</p>
+    </div>
+    <!-- Por confirmar -->
+    <div class="md:w-1/3 w-full">
+      <h3 class="text-lg font-bold text-[#07a495] mb-2">Por confirmar</h3>
+      <ul>
+        <li v-for="(jugadora, idx) in jugadorasPorConfirmar[evento.id]" :key="jugadora.id" class="mb-2 flex items-center gap-2">
+          <span class="font-bold text-[#07a495] mr-2">{{ idx + 1 }}.</span>
+          <span class="font-light text-xs">{{ jugadora.nombre }} {{ jugadora.apellido }}</span>
+          <button
+            class="bg-[#07a495] hover:bg-[#059687] text-white text-xs font-bold px-2 py-1 rounded transition"
+            @click="registrarAsistenciaBoton(evento, jugadora, true)"
+          >Asistiré</button>
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-2 py-1 rounded transition"
+            @click="abrirMotivo(evento.id, jugadora.id)"
+          >No asistiré</button>
+          <!-- Input motivo solo para la jugadora seleccionada -->
+          <template v-if="motivoInput[evento.id] && motivoInput[evento.id].jugadoraId === jugadora.id">
+            <input
+              v-model="motivoInput[evento.id].motivo"
+              placeholder="Motivo"
+              class="border p-1 rounded text-xs ml-2"
+              style="width: 120px"
+            />
+            <button
+              class="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-2 py-1 rounded transition ml-1"
+              @click="registrarAsistenciaBoton(evento, jugadora, false, motivoInput[evento.id].motivo)"
+              :disabled="!motivoInput[evento.id].motivo"
+            >Confirmar</button>
+            <button
+              class="text-gray-400 hover:text-gray-700 text-xs ml-1"
+              @click="cerrarMotivo(evento.id)"
+              title="Cancelar"
+            >✕</button>
+          </template>
+        </li>
+      </ul>
+      <p v-if="jugadorasPorConfirmar[evento.id].length === 0" class="text-gray-400">Todas confirmadas.</p>
+    </div>
+  </div>
+</transition>
         </div>
       </div>
 
@@ -169,17 +173,7 @@
         </ul>
       </ModalVk>
 
-      <!-- MODAL CONFIRMAR ELIMINACIÓN -->
-      <ModalVk :isOpen="showDeleteModal" @close="showDeleteModal = false">
-        <h2 class="text-lg font-bold mb-2 text-[#07a495]">Confirmar eliminación</h2>
-        <p class="mb-2">Para eliminar el entrenamiento <b>{{ entrenamientoAEliminar?.titulo }}</b>, ingresa la clave:</p>
-        <input v-model="claveEliminar" type="password" placeholder="Clave" class="border p-2 rounded w-full mb-2" />
-        <p v-if="errorEliminar" class="text-red-500 text-sm mb-2">{{ errorEliminar }}</p>
-        <div class="flex gap-2">
-          <button @click="confirmarEliminarEntrenamiento" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded font-bold">Eliminar</button>
-          <button @click="showDeleteModal = false" class="bg-gray-200 px-4 py-2 rounded font-bold">Cancelar</button>
-        </div>
-      </ModalVk>
+   
     </div>
   </div>
  </section>
@@ -192,10 +186,10 @@ import { db } from '../firebase'
 import { obtenerDocumentos } from '../helpers/functions'
 import ModalVk from '../Componentes/ModalVk.vue'
 
-const clave = ref('')
-const error = ref('')
-const autenticada = ref(false)
-const CLAVE_GLOBAL = 'vikings2024'
+import Swal from 'sweetalert2'
+
+
+
 
 const eventos = ref([])
 const listado = ref({})
@@ -229,14 +223,32 @@ const cerrarModal = () => {
 const cargarEventos = async () => {
   const q = query(collection(db, 'entrenamientos'), orderBy('dia', 'asc'))
   const snap = await getDocs(q)
-  eventos.value = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+  eventos.value = snap.docs
+    .map(doc => ({ id: doc.id, ...doc.data() }))
+    .filter(ev => ev.equipo === 'jugadoras-ascenso')
+  await obtenerListados() 
 }
 
 // Crear nuevo entrenamiento (guarda el equipo)
 const crearEntrenamiento = async () => {
-  await addDoc(collection(db, 'entrenamientos'), { ...nuevoEvento })
-  await cargarEventos()
-  cerrarModal()
+  const { isConfirmed } = await Swal.fire({
+    title: '¿Crear entrenamiento?',
+    text: '¿Estás seguro de guardar este nuevo entrenamiento?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, guardar',
+    cancelButtonText: 'Cancelar'
+  })
+  if (!isConfirmed) return
+
+  try {
+    await addDoc(collection(db, 'entrenamientos'), { ...nuevoEvento })
+    await cargarEventos()
+    cerrarModal()
+    Swal.fire('Guardado', 'Entrenamiento creado correctamente.', 'success')
+  } catch (e) {
+    Swal.fire('Error', 'No se pudo crear el entrenamiento.', 'error')
+  }
 }
 
 // Eliminar entrenamiento con clave
@@ -247,35 +259,16 @@ const pedirEliminarEntrenamiento = (ev) => {
   showDeleteModal.value = true
 }
 
-const confirmarEliminarEntrenamiento = async () => {
-  if (claveEliminar.value !== CLAVE_GLOBAL) {
-    errorEliminar.value = 'Clave incorrecta'
-    return
-  }
-  await deleteDoc(doc(db, 'entrenamientos', entrenamientoAEliminar.value.id))
-  await cargarEventos()
-  await obtenerListados()
-  showDeleteModal.value = false
-}
 
-// Para controlar input motivo por evento y jugadora
+
+
 const motivoInput = reactive({})
 
 const toggleEvento = (id) => {
   eventoAbierto.value = eventoAbierto.value === id ? null : id
 }
 
-const verificarClave = () => {
-  if (clave.value === CLAVE_GLOBAL) {
-    autenticada.value = true
-    error.value = ''
-    cargarEventos()
-    cargarJugadoras()
-    obtenerListados()
-  } else {
-    error.value = 'Clave incorrecta'
-  }
-}
+
 
 // Cargar jugadoras de cada equipo
 const cargarJugadoras = async () => {
@@ -286,23 +279,35 @@ const cargarJugadoras = async () => {
 
 // Registrar asistencia en la colección del evento
 const registrarAsistenciaBoton = async (evento, jugadora, asiste, motivo = '') => {
+  const accion = asiste ? 'registrar asistencia' : 'registrar inasistencia'
+  const { isConfirmed } = await Swal.fire({
+    title: `¿Confirmar?`,
+    text: `¿Deseas ${accion} para ${jugadora.nombre} ${jugadora.apellido}?`,
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, confirmar',
+    cancelButtonText: 'Cancelar'
+  })
+  if (!isConfirmed) return
+
   try {
     const docData = {
       asiste: asiste,
       motivo: asiste ? "" : motivo,
       nombre: `${jugadora.nombre} ${jugadora.apellido}`,
+      jugadoraId: jugadora.id, // <-- Agrega el id de la jugadora
       timestamp: serverTimestamp()
     }
     await addDoc(collection(db, `asistencias_${evento.id}`), docData)
     cerrarMotivo(evento.id)
     obtenerListados()
+    Swal.fire('Registrado', 'Asistencia registrada correctamente.', 'success')
   } catch (e) {
-    alert('Error al registrar asistencia')
+    Swal.fire('Error', 'No se pudo registrar la asistencia.', 'error')
     console.error(e)
   }
 }
 
-// Mostrar input motivo solo para la jugadora seleccionada
 const abrirMotivo = (eventoId, jugadoraId) => {
   motivoInput[eventoId] = { jugadoraId, motivo: '' }
 }
@@ -310,20 +315,29 @@ const cerrarMotivo = (eventoId) => {
   motivoInput[eventoId] = null
 }
 
-// Dar de baja en la colección del evento
+// Darse de baja en entrenos
 const darDeBaja = async (evento, item) => {
-  const motivo = prompt('Motivo de la baja:', '')
-  if (motivo !== null) {
-    try {
-      await updateDoc(doc(db, `asistencias_${evento.id}`, item.id), {
-        asiste: false,
-        motivo: motivo || 'Sin motivo'
-      })
-      obtenerListados()
-    } catch (e) {
-      alert('Error al dar de baja')
-      console.error(e)
-    }
+  const { value: motivo, isConfirmed } = await Swal.fire({
+    title: 'Dar de baja',
+    input: 'text',
+    inputLabel: 'Motivo de la baja',
+    inputPlaceholder: 'Ingresa el motivo',
+    showCancelButton: true,
+    confirmButtonText: 'Confirmar',
+    cancelButtonText: 'Cancelar'
+  })
+  if (!isConfirmed) return
+
+  try {
+    await updateDoc(doc(db, `asistencias_${evento.id}`, item.id), {
+      asiste: false,
+      motivo: motivo || 'Sin motivo'
+    })
+    obtenerListados()
+    Swal.fire('Baja registrada', 'La jugadora fue dada de baja.', 'success')
+  } catch (e) {
+    Swal.fire('Error', 'No se pudo dar de baja.', 'error')
+    console.error(e)
   }
 }
 
@@ -360,18 +374,8 @@ const jugadorasPorConfirmar = computed(() => {
 
     const registros = (listado.value[ev.id] || [])
     resultado[ev.id] = jugadorasEquipo.filter(j => {
-      const apellidoJ = (j.apellido || '').trim().toLowerCase()
-      const nombreJ = (j.nombre || '').trim().toLowerCase()
-      // Busca si hay algún registro con mismo apellido y nombre que empiece igual (mínimo 2 letras)
-      const coincide = registros.some(item => {
-        const partes = (item.nombre || '').trim().toLowerCase().split(' ')
-        const nombreR = partes[0] || ''
-        const apellidoR = partes.slice(1).join(' ') || ''
-        return (
-          apellidoR && apellidoJ && apellidoR === apellidoJ &&
-          nombreR && nombreJ && nombreJ.startsWith(nombreR.slice(0, 2))
-        )
-      })
+  
+      const coincide = registros.some(item => item.jugadoraId === j.id)
       return !coincide
     })
   })
@@ -386,12 +390,10 @@ const equipoLabel = (equipo) => {
   return ''
 }
 
-onMounted(() => {
-  if (autenticada.value) {
-    cargarEventos()
-    cargarJugadoras()
-    obtenerListados()
-  }
+onMounted(async () => {
+  await cargarEventos()
+  await cargarJugadoras()
+  await obtenerListados()
 })
 </script>
 
