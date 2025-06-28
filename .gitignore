@@ -22,3 +22,41 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Build output
+build/
+coverage/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.* 
+.env.local
+
+# Firebase emulators & config
+.firebase/
+.firebaserc
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# VSCode settings (ya tienes .vscode/*, pero puedes afinar)
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# Mac system files
+*.DS_Store
+
+# Windows system files
+*.lnk
+
+# npm package lock files (opcional, si no quieres compartirlos)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Node modules
+node_modules/

@@ -39,10 +39,7 @@
                 <router-link to="/admin/jugadoras" class="bg-blue-500 text-white p-4 rounded hover:bg-blue-600">
                     Gestionar Jugadoras
                 </router-link>
-                <router-link to=""
-                    class="bg-green-500 disabled cursor-none text-white p-4 rounded opacity-20 hover:bg-green-600">
-                    Gestionar Eventos
-                </router-link>
+              
                 <router-link to="/estadisticasentrenamientos"
                     class="bg-purple-500 text-white p-4 rounded hover:bg-purple-600">
                     Ver Estadísticas
@@ -52,10 +49,13 @@
                 </router-link>
                 <!-- NUEVOS BOTONES -->
                 <button @click="isNoticiasOpen = true" class="bg-yellow-500 text-white p-4 rounded hover:bg-yellow-600">
-                    Administrar Noticias
+                    Administrar Gráficas
                 </button>
                 <button @click="isResultadosOpen = true" class="bg-pink-500 text-white p-4 rounded hover:bg-pink-600">
                     Administrar Resultados
+                </button>
+                  <button @click="isAnunciosOpen = true" class="bg-green-500 text-white p-4 rounded hover:bg-green-600">
+                    Administrar Anuncios
                 </button>
             </div>
             <button @click="cerrarSesionAdmin" class="bg-gray-400 text-white px-4 py-2 rounded mt-4">
@@ -107,6 +107,43 @@
         </ModalVk>
         <!-- Agrega esto donde quieras mostrar el botón de salir -->
 
+        <!-- MODAL ANUNCIOS -->
+        <ModalVk :isOpen="isAnunciosOpen" @close="isAnunciosOpen = false">
+            <template #header>
+                <h2 class="text-2xl font-bold mb-4 text-[#07a495]">Administrar Anuncios</h2>
+            </template>
+            <div>
+                <h3>Publicar anuncio</h3>
+                <input v-model="nuevoAnuncio.titulo" placeholder="Título del anuncio"
+                    class="border p-2 rounded w-full mb-2" />
+                <textarea v-model="nuevoAnuncio.detalle" placeholder="Detalle del anuncio"
+                    class="border p-2 rounded w-full mb-2"></textarea>
+                <button @click="guardarAnuncio" class="bg-[#07a495] text-white px-4 py-2 rounded">Guardar Anuncio</button>
+                <p v-if="error" class="text-red-500 mt-2 text-center">{{ error }}</p>
+
+               <div class="mt-6">
+                  <h2 class="text-xl font-bold mb-4 text-yellow-700">Anuncios Publicados</h2>
+    <ul class="space-y-4">
+      <li v-for="anuncio in anuncios" :key="anuncio.id" class="flex justify-between shadow p-2 rounded-md items-center gap-2">
+        <span class="text-yellow-500 mt-1">📢</span>
+        <div>
+          <p class="text-gray-800 font-medium">{{ anuncio.titulo }}</p>
+          <p v-if="anuncio.detalle" class="text-gray-600 text-sm">{{ anuncio.detalle }}</p>
+          
+        </div>
+                <button
+          class="text-red-500 hover:text-red-700 font-bold px-2"
+          @click="eliminarAnuncio(anuncio.id)"
+          title="Eliminar"
+        >🗑️</button>
+        
+      </li>
+      
+    </ul>
+               </div>
+            </div>
+        </ModalVk>
+
     </section>
 </template>
 
@@ -114,7 +151,7 @@
 import { ref, onMounted } from 'vue'
 import ModalVk from '../Componentes/ModalVk.vue'
 import { db, storage } from '../firebase'
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp, getDocs, deleteDoc, doc } from 'firebase/firestore'
 import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 import Swal from 'sweetalert2'
@@ -127,6 +164,8 @@ const CLAVE_ADMIN = 'yesiprofe'
 
 const isNoticiasOpen = ref(false)
 const isResultadosOpen = ref(false)
+const isAnunciosOpen = ref(false)
+
 
 function mostrarAlerta() {
   Swal.fire({
@@ -136,7 +175,9 @@ function mostrarAlerta() {
 })
 }
 
-onMounted(() => {
+onMounted(async() => {
+    const snap = await getDocs(collection(db, 'anuncios'))
+  anuncios.value = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }))
     if (localStorage.getItem('adminAutenticado') === 'true') {
         autenticado.value = true
     }
@@ -249,5 +290,37 @@ const guardarResultado = async () => {
     } catch (e) {
         error.value = 'Error al guardar el resultado'
     }
+}
+
+
+//Anuncios
+
+const nuevoAnuncio = ref({ titulo: '', detalle: '' })
+const anuncios = ref([])
+
+const guardarAnuncio = async () => {
+    if (!nuevoAnuncio.value.titulo) {
+        error.value = 'Completa el título del anuncio'
+        return
+    }
+    try {
+        await addDoc(collection(db, 'anuncios'), {
+            titulo: nuevoAnuncio.value.titulo,
+            detalle: nuevoAnuncio.value.detalle || '',
+            fecha: serverTimestamp()
+        })
+        nuevoAnuncio.value = { titulo: '', detalle: '' }
+        isAnunciosOpen.value = false
+        error.value = ''
+         mostrarAlerta()
+    } catch (e) {
+        error.value = 'Error al guardar el anuncio: ' + (e.message || e)
+    }
+}
+
+
+const eliminarAnuncio = async (id) => {
+  await deleteDoc(doc(db, 'anuncios', id))
+  anuncios.value = anuncios.value.filter(a => a.id !== id)
 }
 </script>
